@@ -79,3 +79,15 @@ Ich hoffe, bis spätestens Ende des Monats Oktober 2016 erste
 .qlt-Dateien liefern zu können.
 
 Alles in diesem Repo steht unter der Apache-Lizens, siehe LICENSE.txt.
+
+## Initiale Ernte
+
+In der Datei [harvest.json](harvest.json) finden sich alle Fragen, die
+im Onlinekurs direkt vorkommen.  Die Software, diese Liste von der
+Webseite des DARC zu extrahieren, steckt in `harvest/Rakefile`. Man
+braucht ein halbwegs aktuelles Ruby und das Gem `Nokogiri`
+installiert, wenn man das laufen lassen will; Aufruf schlicht `rake`
+(und zum Schönformatieren das Gem `jgrep`).
+
+Dass https://www.darc.de/der-club/referate/ajw/lehrgang-bv/bv10/ nach http
+umleitet, ist bereits gemeldet.

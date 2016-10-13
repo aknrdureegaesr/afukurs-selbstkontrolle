@@ -1,0 +1,101 @@
+require 'net/http'
+require 'nokogiri'
+
+# https://www.darc.de/der-club/referate/ajw/darc-online-lehrgang/
+
+# With SSL:
+@client = Net::HTTP.new('www.darc.de', 443)
+@client.use_ssl = true
+
+# Without SSL:
+@oldclient = Net::HTTP.new('www.darc.de')
+
+@harvest = File.open("harvest.json", "w")
+@harvest.print "{ \"harvest_from_website\": {"
+
+desc "do it all"
+task :default do |t|
+  @harvest.print "\n}, \"time\": \"#{Time.now.strftime('%FT%T%:z')}\" }";
+end
+
+def grab_as_html(path, reccount = 0, client = @client)
+  raise "Too much redirection: #{path}" unless reccount <= 5
+  response = client.request_get(path)
+  if response.is_a?(Net::HTTPSuccess)
+    if /^text\/html(;.*)?$/i =~ response['content-type']
+      Nokogiri::HTML(response.body)
+    else
+      raise "Don't know how to deal with content-type \"#{response['content-type']}\""
+    end
+  elsif response.is_a?(Net::HTTPFound)
+    newpath = response['location']
+    $stderr.print "INFO: Redirection from #{path} to #{newpath}\n"
+    if /^http:\/\/www.darc.de(\/.+)$/ =~ newpath
+      grab_as_html($1, reccount + 1, @oldclient)
+    elsif /^https:\/\/www.darc.de(\/.+)$/ =~ newpath
+      grab_as_html($1, reccount + 1, @client)
+    else
+      raise "Do not follow redirect to #{newpath}"
+    end
+  else
+    raise "No success HTTP GET #{path} on #{@client.inspect}: #{response.inspect}"
+  end
+end
+
+# http://www.darc.de/der-club/referate/ajw/lehrgang-bv/bv10/
+
+@section2uri = {}
+
+def make_task(section)
+  desc "Fetch questions for section #{section}"
+
+  new_task = task section.to_sym => [:grab_section_links] do |t|
+    section = t.to_s
+    uri = @section2uri[section]
+    raise "Oioioi: No link for #{section}" if uri.nil?
+    doc = grab_as_html(uri)
+    @harvest.print "\"#{section}\": ["
+    first = true
+    doc.xpath('//a[@name]//b').each do |b|
+      if /^\w\w\d\d\d$/ =~ b.content
+        if first
+          first = false
+        else
+          @harvest.print ", "
+        end
+        @harvest.print "\"#{b.content}\""
+      else
+        # $stderr.print "Nope: \"#{b.content}\""
+      end
+    end
+    @harvest.print "]"
+    @harvest.print ",\n" unless "bv14" == t.to_s
+  end
+  task :default => [new_task]
+  task :finish_file => [new_task]
+end
+
+(1 .. 18).each { |n| make_task("e#{sprintf "%02d", n}") }
+(1 .. 14).each { |n| make_task("bv#{sprintf "%02d", n}") }
+
+desc "grab section links"
+task :grab_section_links do |t|
+  doc = grab_as_html('/der-club/referate/ajw/darc-online-lehrgang/')
+  doc.xpath('//table/tbody/tr/td/a').each do |a|
+    if /^(der\-club\/referate\/ajw\/lehrgang\-[^\/]+\/([^\/\d]+\d+)\/)$/ =~ a['href']
+      link = "/#{$1}"
+      section = $2
+      @section2uri[section] = link
+      # p link
+    else
+      # p "ignoring \"#{a['href']}\""
+    end
+  end
+  # Sigh...
+  @section2uri['e05'] = '/?id=29317'
+  @section2uri['e06'] = '/?id=29318'
+  @section2uri['e07'] = '/?id=29319'
+  @section2uri['e08'] = '/?id=29320'
+  @section2uri['e09'] = '/?id=29321'
+  # Cool URIs don't change. I hope they know that at DARC AJW Referat...
+end
