@@ -86,8 +86,7 @@ In der Datei [harvest.json](harvest.json) finden sich alle Fragen, die
 im Onlinekurs direkt vorkommen.  Die Software, diese Liste von der
 Webseite des DARC zu extrahieren, steckt in `harvest/Rakefile`. Man
 braucht ein halbwegs aktuelles Ruby und das Gem `Nokogiri`
-installiert, wenn man das laufen lassen will; Aufruf schlicht `rake`
-(und zum Schönformatieren das Gem `jgrep`).
+installiert, wenn man das laufen lassen will; Aufruf schlicht `rake`.
 
 Dass https://www.darc.de/der-club/referate/ajw/lehrgang-bv/bv10/ nach http
 umleitet, ist bereits gemeldet.
