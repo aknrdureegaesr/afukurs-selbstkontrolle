@@ -1,0 +1,1130 @@
+# Welche Fragen gehören inhaltlich zusammen,
+# so dass man sie gut zusammen lernen kann.
+
+# Dieses Material stammt aus früheren Kursen.
+
+-
+  Fragen: |
+    bb401-bb407
+  Thema: |
+    Bezeichnung Sendearten.
+-
+  Fragen: |
+    be102
+  Thema: |
+    Verschlüsselung.
+-
+  Fragen: |
+    bb301-bb302 bb305 bb309-bb310
+  Thema: |
+    RST-Signalrapport
+-
+  Fragen: |
+    bd201-bd210
+  Thema: |
+    Europäische Landeskenner
+-
+  Fragen: |
+    be216
+  Thema: |
+    Ham Spirit
+-
+  Fragen: |
+    be401 be402 be404-be406
+  Thema: |
+    Relais
+-
+  Fragen: |
+    be301 be302
+  Thema: |
+    Schmalband-Betriebsarten gut für DX.
+-
+  Fragen: |
+    bc209-bc210
+  Thema: |
+    SSB, USB, LSB
+-
+  Fragen: |
+    bb101 bb103 bb111 be111 be113 
+  Thema: |
+    Vermischte Betriebsabkürzungen.
+-
+  Fragen: |
+    bd101 bd115
+  Thema: |
+    Deutsche Rufzeichen (Reste)
+-
+  Fragen: |
+    bc220 be403 be409
+  Thema: |
+    Baken.
+-
+  Fragen: |
+    be104
+  Thema: |
+    Mixed Mode CW / SSB ungewöhnlich, aber erlaubt (Bandplan 80m)
+-
+  Fragen: |
+    be304-be309 be410
+  Thema: |
+    Packet Radio
+-
+  Fragen: |
+    bc101-bc103 bc105
+  Thema: |
+    UHF/VHF Bänder.
+-
+  Fragen: |
+    bb102 bb106 be103 be106 be109-be110 be118
+  Thema: |
+    CQ-Ruf und die Antwort darauf, Teil 2.
+-
+  Fragen: |
+    be210 be212
+  Thema: |
+    Aurora
+-
+  Fragen: |
+    bd107
+  Thema: |
+    CEPT-Empfehlung T/R 61-01 (vorrübergehender Betrieb Klasse A)
+-
+  Fragen: |
+    ba102-ba111
+  Thema: |
+    Internationales Buchstabieralphabet.
+-
+  Fragen: |
+    bb303 bb304 bb306-bb308
+  Thema: |
+    R (Signalrapport) und dB.
+-
+  Fragen: |
+    bc206
+  Thema: |
+    30m nur Schmalbandbetriebsarten
+-
+  Fragen: |
+    be201-be208
+  Thema: |
+    Pile-up.
+-
+  Fragen: |
+    bg103 bg104 bg108 bg109 
+  Thema: |
+    Logbuch
+-
+  Fragen: |
+    bc201 bc213 bc214 bc215 be117 
+  Thema: |
+    Bandpläne: Sich dran halten.
+-
+  Fragen: |
+    be115-be116 be209 be213
+  Thema: |
+    Ausbreitung KW. Man sollte aber schon mal Landeskenner gesehen haben.
+-
+  Fragen: |
+    be310
+  Thema: |
+    Simplex / duplex.
+-
+  Fragen: |
+    bb105 bb107-bb109 be107-be108 be112 be119
+  Thema: |
+    Betriebsabwicklung CW
+-
+  Fragen: |
+    be214
+  Thema: |
+    Locator
+-
+  Fragen: |
+    bb104 be101 be114
+  Thema: |
+    CQ-Ruf und die Antwort darauf, Teil 1.
+-
+  Fragen: |
+    ba101
+  Thema: |
+    Internationales Buchstabieralphabet - was ist das? - siehe auch [[ba102]].
+-
+  Fragen: |
+    bg106 bg107 bg110-bg113 bg115
+  Thema: |
+    QSL-Karten
+-
+  Fragen: |
+    bd108
+  Thema: |
+    ECC-Empfehlung (05)06 (Vorübergehender Betrieb Klasse E)
+-
+  Fragen: |
+    be215
+  Thema: |
+    Fuchsjagd.
+-
+  Fragen: |
+    bc106-bc114
+  Thema: |
+    Kurzwellenbandpläne (nur Bandgrenzen).
+-
+  Fragen: |
+    bb201-bb209 be105
+  Thema: |
+    Q-Gruppen
+-
+  Fragen: |
+    bf101 bf106-bf108 bf110
+  Thema: |
+    Reaktion auf Notruf
+-
+  Fragen: |
+    bd106 bd109-bd111 bd307
+  Thema: |
+    portabel, mobil.
+-
+  Fragen: |
+    bb311
+  Thema: |
+    Aurora kein RST-Rapport 599, nur RSA 59A.
+-
+  Fragen: |
+    bb110
+  Thema: |
+    Die fast vergessene Frage - CQ-Ruf in CW.
+-
+  Fragen: |
+    bf105 bg101 bg102 bg105 bg114
+  Thema: |
+    UTC
+-
+  Fragen: |
+    bb312 be303
+  Thema: |
+    SSTV
+-
+  Fragen: |
+    be211
+  Thema: |
+    Ausbreitung VHF / UHF
+-
+  Fragen: |
+    bf102-bf104
+  Thema: |
+    Notruf
+-
+  Fragen: |
+    bd301-bd306 bd308-bd309
+  Thema: |
+    Internationale (außereuropäische) Landeskenner.
+-
+  Fragen: |
+    bc104 bc202-bc205 bc207 bc208 bc218 bc219
+  Thema: |
+    Bandplan 2m
+-
+  Fragen: |
+    bc211 bc212 bc216 bc217 bf109
+  Thema: |
+    Kurzwellenbandpläne.
+-
+  Fragen: |
+    be407 be408 be411
+  Thema: |
+    Satelliten
+-
+  Fragen: |
+    bd102-bd105 bd112-bd114
+  Thema: |
+    Deutsche Rufzeichen.
+-
+  Fragen: |
+    ta203 tb901 tb905-tb911
+  Thema: |
+    Leistung, Arbeit / Energie
+-
+  Fragen: |
+    te304-te305 te308
+  Thema: |
+    Paket Radio
+-
+  Fragen: |
+    th105 th113 th209
+  Thema: |
+    Beams + Yagis
+-
+  Fragen: |
+    tl201-tl203
+  Thema: |
+    ERP, EIRP - grundsätzliches
+-
+  Fragen: |
+    tc105-tc107
+  Thema: |
+    PTC, NTC
+-
+  Fragen: |
+    tg201
+  Thema: |
+    Speech Processor
+-
+  Fragen: |
+    tf103 tf204-tf205
+  Thema: |
+    Doppelsuper
+-
+  Fragen: |
+    tb608-tb609
+  Thema: |
+    Frequenzbereiche von UHF, VHF
+-
+  Fragen: |
+    tj201 tj202
+  Thema: |
+    Ströme und Spannungen messen
+-
+  Fragen: |
+    te312
+  Thema: |
+    Duplex, Halbduplex
+-
+  Fragen: |
+    th312
+  Thema: |
+    Koaxstecker
+-
+  Fragen: |
+    th201 th202 th204-th207
+  Thema: |
+    Dipole
+-
+  Fragen: |
+    tg403
+  Thema: |
+    RIT
+-
+  Fragen: |
+    td201-td205 td207 td209
+  Thema: |
+    Schwingkreise
+-
+  Fragen: |
+    tj103-tj104 tj105 tj106
+  Thema: |
+    Dipmeter
+-
+  Fragen: |
+    th102 th111 th203 th208
+  Thema: |
+    Einfache VHF/UHF-Antennen
+-
+  Fragen: |
+    tf201-tf203 tf408
+  Thema: |
+    AGC
+-
+  Fragen: |
+    tb804
+  Thema: |
+    FSK / AFSK
+-
+  Fragen: |
+    ti301-ti305 ti310
+  Thema: |
+    VHF/UHF-Ausbreitung
+-
+  Fragen: |
+    ti306-ti308
+  Thema: |
+    Ausbreitung via Aurora
+-
+  Fragen: |
+    tk101 tk102 tk103 tk107
+  Thema: |
+    Zustopfen von Empfängern, Intermodulation
+-
+  Fragen: |
+    tf303
+  Thema: |
+    Quarzfilter
+-
+  Fragen: |
+    tb101-tb103 tb104
+  Thema: |
+    Leitfähigkeit von Metallen, Isolatoren
+-
+  Fragen: |
+    td306
+  Thema: |
+    Schaltnetzteil
+-
+  Fragen: |
+    ta103 ta206 ta207
+  Thema: |
+    p n µ m - k M G T
+-
+  Fragen: |
+    tc509
+  Thema: |
+    Leuchtdiode
+-
+  Fragen: |
+    th307-th308
+  Thema: |
+    Wellenwiderstand einer Speiseleitung
+-
+  Fragen: |
+    tj208
+  Thema: |
+    Frequenzzähler
+-
+  Fragen: |
+    ti101-ti105 ti210 ti212
+  Thema: |
+    Ionosphäre, Schichten, KW-Ausbreitung
+-
+  Fragen: |
+    tg301 th304
+  Thema: |
+    dBW und dBm
+-
+  Fragen: |
+    ti202-ti203
+  Thema: |
+    Bodenwelle, tote Zone
+-
+  Fragen: |
+    th103 th107 th210
+  Thema: |
+    Kurzwellenantennen
+-
+  Fragen: |
+    ta202
+  Thema: |
+    Ladung, Einheit
+-
+  Fragen: |
+    tc401-tc403 td304 td305
+  Thema: |
+    Trafos, Übertrager
+-
+  Fragen: |
+    tk315-tk319 tl101
+  Thema: |
+    EMV
+-
+  Fragen: |
+    td108
+  Thema: |
+    Spannungsteiler
+-
+  Fragen: |
+    td601-td603 td606
+  Thema: |
+    Oszillatoren (Grundlagen)
+-
+  Fragen: |
+    tg404
+  Thema: |
+    PTT
+-
+  Fragen: |
+    ta101 ta102 ta104
+  Thema: |
+    Wissenschaftliche Zahlendarstellung
+-
+  Fragen: |
+    tc508
+  Thema: |
+    Z-Diode
+-
+  Fragen: |
+    td604 td605
+  Thema: |
+    Frequenzänderung von LC-Oszillatoren
+-
+  Fragen: |
+    ta201 ta204 tb902-tb904
+  Thema: |
+    Ohmsches Gesetz und
+-
+  Fragen: |
+    tb601-tb605 ti201
+  Thema: |
+    Umrechnung Wellenlänge / Frequenz
+-
+  Fragen: |
+    tj107 tj108
+  Thema: |
+    Osilloskop
+-
+  Fragen: |
+    th104 th108 th109
+  Thema: |
+    Vertikalantennen
+-
+  Fragen: |
+    te301-te303 te306 te307 tg203
+  Thema: |
+    Modulation bei Paket Radio via FM
+-
+  Fragen: |
+    tc601-tc610
+  Thema: |
+    (Bipolare) Transistoren
+-
+  Fragen: |
+    tb702
+  Thema: |
+    Oberwellen
+-
+  Fragen: |
+    tc108
+  Thema: |
+    k und ein bisschen Prozentrechnen
+-
+  Fragen: |
+    tb501-tb505
+  Thema: |
+    Elektromagnetische Wellen (Grundlagen)
+-
+  Fragen: |
+    tg402
+  Thema: |
+    Betriebsarten üblicher TRX
+-
+  Fragen: |
+    tf101-tf102 tf104-tf107 tf109 tf110 tf301 tf402
+  Thema: |
+    Superhet, ZF-Berechnung, Spiegelfrequenz
+-
+  Fragen: |
+    tc505-tc506
+  Thema: |
+    Arbeitspunkt Si-Dioden
+-
+  Fragen: |
+    ta205
+  Thema: |
+    SI internationales Maßeinheitensystem
+-
+  Fragen: |
+    tg501
+  Thema: |
+    Modulation bei CW
+-
+  Fragen: |
+    tc301-tc303
+  Thema: |
+    Induktivität verschiedener Spulen 
+-
+  Fragen: |
+    tb801 tb802 tb805 tb806 td503 te101 tg503
+  Thema: |
+    AM, SSB, (DSB), LSB, USB
+-
+  Fragen: |
+    te310
+  Thema: |
+    ATV, SSTV
+-
+  Fragen: |
+    tg102
+  Thema: |
+    Transverter
+-
+  Fragen: |
+    tc203-tc206
+  Thema: |
+    Kondensator, Teil 2.
+-
+  Fragen: |
+    te309 te311
+  Thema: |
+    PSK31, RTTY
+-
+  Fragen: |
+    tc208 tc305 tc306 td206 td208 td210
+  Thema: |
+    Filter
+-
+  Fragen: |
+    tf403-tf406
+  Thema: |
+    S-Stufen und dB
+-
+  Fragen: |
+    tf108 tf401
+  Thema: |
+    Empfängerkennzahlen
+-
+  Fragen: |
+    ti107 ti206 ti209 ti211 ti213
+  Thema: |
+    Übriggebliebener Krimskrams KW-Ausbreitung:
+-
+  Fragen: |
+    tl306-tl308
+  Thema: |
+    Funken im Kfz
+-
+  Fragen: |
+    td401-td404
+  Thema: |
+    Verstärker, OpAmp, IC
+-
+  Fragen: |
+    tg202 tg405
+  Thema: |
+    VOX
+-
+  Fragen: |
+    ti207-ti208
+  Thema: |
+    Mögel-Dellinger
+-
+  Fragen: |
+    tb612 tb613
+  Thema: |
+    Effektivwert, Spitzenwert von Wechselspannungen 
+-
+  Fragen: |
+    tl301-tl305
+  Thema: |
+    Blitzschutz, Überspannungsschutz
+-
+  Fragen: |
+    tb701 td501
+  Thema: |
+    Modulation (Grundlagen)
+-
+  Fragen: |
+    tb201-tb202 tb204
+  Thema: |
+    Reihenschaltung von Batterien
+-
+  Fragen: |
+    te103 te104 te106
+  Thema: |
+    Modulationsgrad AM
+-
+  Fragen: |
+    ti106 ti309
+  Thema: |
+    E und sporadic E
+-
+  Fragen: |
+    tg303 tg304
+  Thema: |
+    Sender-Ausgangsleistung
+-
+  Fragen: |
+    th305-th306
+  Thema: |
+    Kabeldämpfung aus Diagramm
+-
+  Fragen: |
+    tg101 tg104 tg105 tg307 tk203
+  Thema: |
+    Ausgangsleistung bei SSB, Splatter
+-
+  Fragen: |
+    tl204-tl208
+  Thema: |
+    ERP, EIRP
+-
+  Fragen: |
+    tb105 tc501-tc504
+  Thema: |
+    Halbleiter, PN-Übergang
+-
+  Fragen: |
+    tj102 tj205
+  Thema: |
+    Auflösung + Ablesen Messinstrument
+-
+  Fragen: |
+    tg302 tg305 th301 th302 th303
+  Thema: |
+    dB und Leistung
+-
+  Fragen: |
+    td301
+  Thema: |
+    Strom- und Spannungsquellen
+-
+  Fragen: |
+    tb803 td502 te102 te201-te204 tf302 tg103 tg306 tg401 tk204 tk301
+  Thema: |
+    FM
+-
+  Fragen: |
+    th403-th405
+  Thema: |
+    Mantelwellen
+-
+  Fragen: |
+    tk308-tk310 tk314
+  Thema: |
+    EMV-Filter
+-
+  Fragen: |
+    td101-td104 td109-td110
+  Thema: |
+    Widerstandsnetzwerke
+-
+  Fragen: |
+    tb205
+  Thema: |
+    Ladung (Akku)
+-
+  Fragen: |
+    tc611 tc612
+  Thema: |
+    FET
+-
+  Fragen: |
+    ta208 tb301 tb302 tc201 tc202 tc207
+  Thema: |
+    Kondensator
+-
+  Fragen: |
+    te105
+  Thema: |
+    Zweitonsignal SSB
+-
+  Fragen: |
+    tf407
+  Thema: |
+    Notchfilter
+-
+  Fragen: |
+    th110 th112
+  Thema: |
+    Vermischte einfache Antennen: Sperrkreisdipol, erste Yagi
+-
+  Fragen: |
+    tb401-tb403 tb405 tc304 tj101
+  Thema: |
+    Magnetisches Feld, Spule, Spulenkerne
+-
+  Fragen: |
+    tc101-tc104
+  Thema: |
+    Farbkode Widerstände
+-
+  Fragen: |
+    tg504
+  Thema: |
+    Filter
+-
+  Fragen: |
+    th401 th402 th406 tj204 tj206 tj207 tj209-tj211
+  Thema: |
+    SWR
+-
+  Fragen: |
+    td405
+  Thema: |
+    Röhre
+-
+  Fragen: |
+    ti204-ti205
+  Thema: |
+    Der erste Hop bei der KW-Ausbreitung
+-
+  Fragen: |
+    tc110-tc111
+  Thema: |
+    Bezeichnungen auf SMD-Bauteilen
+-
+  Fragen: |
+    td302 td303
+  Thema: |
+    Innenwiderstand
+-
+  Fragen: |
+    tb606-tb607 tb610-tb611 tj203
+  Thema: |
+    Frequenz und Periodendauer
+-
+  Fragen: |
+    tb303 tb404
+  Thema: |
+    Vertikalantenne
+-
+  Fragen: |
+    tl209-tl214
+  Thema: |
+    Sicherheitsabstände Personen und Herzschrittmacher.
+-
+  Fragen: |
+    tk105-tk106 tk201-tk202 tk302 tk303-tk307 tk311-tk313 
+  Thema: |
+    EMV
+-
+  Fragen: |
+    td105-td107
+  Thema: |
+    Netzwerke von Kondensatoren
+-
+  Fragen: |
+    tg502 tg506 tk104
+  Thema: |
+    Oberwellenfilter
+-
+  Fragen: |
+    tf409
+  Thema: |
+    Noise Blanker
+-
+  Fragen: |
+    tc109 tg505 tj109 tj110
+  Thema: |
+    Dummy Load
+-
+  Fragen: |
+    th101 th106
+  Thema: |
+    Antennen einschl. Yagi
+-
+  Fragen: |
+    tb203
+  Thema: |
+    technische Stromrichtung
+-
+  Fragen: |
+    tc507
+  Thema: |
+    Kapazitätsdiode
+-
+  Fragen: |
+    th309-th311
+  Thema: |
+    HF-Speiseleitungen
+-
+  Fragen: |
+    td504
+  Thema: |
+    Balancemodulator zur SSB-Erzeugung
+-
+  Fragen: |
+    va301
+  Thema: |
+    Morsequalifikation lassen die R.R. offen.
+-
+  Fragen: |
+    vc126 vc130 vc131
+  Thema: |
+    Gewerbliche Nutzung verboten.
+-
+  Fragen: |
+    vc128 ve153
+  Thema: |
+    Selbstbau, Eigenverantwortung
+-
+  Fragen: |
+    vc101-vc106 vc111-vc112 vc114 vc119 vk104
+  Thema: |
+    Grundsätzliches aus dem AfuG
+-
+  Fragen: |
+    va101-va104 va201-va203 va302 va303
+  Thema: |
+    Grundlegendes aus den Radio Regulations
+-
+  Fragen: |
+    vc134 vg101 vg103-vg110
+  Thema: |
+    EMVG
+-
+  Fragen: |
+    vc137 vi110
+  Thema: |
+    Standortbescheinigungen im Afu (meist) nicht nötig.
+-
+  Fragen: |
+    ve142-ve145 ve148
+  Thema: |
+    Maximal zulässige Bandbreite KW
+-
+  Fragen: |
+    va406
+  Thema: |
+    Q-Gruppen
+-
+  Fragen: |
+    vd112
+  Thema: |
+    Afu-Empfang ist frei.
+-
+  Fragen: |
+    va405 va409
+  Thema: |
+    Internationaler Frequenzbereichszuweisungsplan.
+-
+  Fragen: |
+    vd103
+  Thema: |
+    PEP
+-
+  Fragen: |
+    vd126
+  Thema: |
+    Unterlagen zur Sendeanlage auf Anforderung
+-
+  Fragen: |
+    vc133 vc135-vc136 vi102-vi106
+  Thema: |
+    Personenschutz
+-
+  Fragen: |
+    va407 vd114
+  Thema: |
+    Notzeichen
+-
+  Fragen: |
+    vc113 vc115
+  Thema: |
+    Zweck Afu + Afu-Prüfung laut AfuG
+-
+  Fragen: |
+    vb121
+  Thema: |
+    Gastzulassung
+-
+  Fragen: |
+    vd117
+  Thema: |
+    Q-Gruppen
+-
+  Fragen: |
+    vc138-vc146
+  Thema: |
+    Drohungen bei Verstößen
+-
+  Fragen: |
+    vh101-vh104
+  Thema: |
+    CE-Zeichen auf kommerziellen Geräten
+-
+  Fragen: |
+    vf101-vf104
+  Thema: |
+    Fernmeldegeheimnis und Empfang von nicht-Afu-Aussendungen
+-
+  Fragen: |
+    vk101
+  Thema: |
+    Haftung
+-
+  Fragen: |
+    vb101 vb102 vb104 vb106 vb107 vb112 vb114 vb115 vb116 vb117 vb118
+  Thema: |
+    CEPT-Empfehlung 05(06) für Kurzzeitbetrieb.
+-
+  Fragen: |
+    va304 vd115 vd116 
+  Thema: |
+    Amateurfunkverkehr immer offen
+-
+  Fragen: |
+    vc107-vc110 ve152
+  Thema: |
+    Funkamateure nur mit Funkamateuren
+-
+  Fragen: |
+    ve126-ve129 ve135
+  Thema: |
+    Leistungsgrenzen Kurzwelle Klassen A + E
+-
+  Fragen: |
+    va408
+  Thema: |
+    Internationale Rufzeichenregeln
+-
+  Fragen: |
+    vd212
+  Thema: |
+    Mobil
+-
+  Fragen: |
+    vj102 vj103
+  Thema: |
+    VDE-Vorschriften 
+-
+  Fragen: |
+    ve120-ve125 ve149 ve151
+  Thema: |
+    Primärer und sekundärer Status von Afu-Bändern
+-
+  Fragen: |
+    vd106 vd201-vd208 vd213-vd217 vd219-vd221
+  Thema: |
+    Deutsche Rufzeichenkunde
+-
+  Fragen: |
+    va401-va404
+  Thema: |
+    Die Funkregionen der Radio Regulations
+-
+  Fragen: |
+    vi107-vi109 vi111 vi112-vi123
+  Thema: |
+    Anzeige nach BEMFV
+-
+  Fragen: |
+    vf107-vf109
+  Thema: |
+    Wanzen- Abhörverbot
+-
+  Fragen: |
+    vc120 vc125
+  Thema: |
+    Rufzeichenkunde
+-
+  Fragen: |
+    vc132 vg102 vi101
+  Thema: |
+    Eigenverantwortung Störfestigkeit Afugeräte
+-
+  Fragen: |
+    vd127 vd128 vd222
+  Thema: |
+    Besondere Studien
+-
+  Fragen: |
+    vd113 vd124-vd125
+  Thema: |
+    Logbuch
+-
+  Fragen: |
+    vd118 vd122
+  Thema: |
+    Unerwünschte Aussendungen
+-
+  Fragen: |
+    vk102 vk103
+  Thema: |
+    Gebühren und Beiträge 
+-
+  Fragen: |
+    vb122-vb125
+  Thema: |
+    CEPT Empfehlung T/R&nbsp;61-02 für Prüfungsanerkennung (bei Umzug)
+-
+  Fragen: |
+    ve104-ve112
+  Thema: |
+    In Deutschland ausgewiesene KW-Bänder
+-
+  Fragen: |
+    vc116-vc118 vc124 vc127 vd109-vd110
+  Thema: |
+    Zulassung zur Teilnahme nötig zum Funken
+-
+  Fragen: |
+    vc123 vd101 vd210 vd223 vd401-vd411
+  Thema: |
+    Klubstation
+-
+  Fragen: |
+    vb103 vb105 vb111 vb113 vb119 vb120
+  Thema: |
+    CEPT-Empfehlung T/R&nbsp;61-01 für Kurzzeitbetrieb.
+-
+  Fragen: |
+    va204 va205
+  Thema: |
+    Grundlegendes aus den Radio Regulations:
+-
+  Fragen: |
+    ve130-ve134
+  Thema: |
+    Leistungsgrenzen Kurzwelle Klasse A
+-
+  Fragen: |
+    vd104-vd105 ve101-ve103 ve150 vf105 vf106
+  Thema: |
+    Nationale Bandpläne (grundsätzliches)
+-
+  Fragen: |
+    ve146-ve147
+  Thema: |
+    Maximal zulässige Bandbreite VHF / UHF
+-
+  Fragen: |
+    ve136 ve137
+  Thema: |
+    Sonderregeln 6 m
+-
+  Fragen: |
+    vc122 vd301-vd309
+  Thema: |
+    Ausbildungsfunk
+-
+  Fragen: |
+    vj101
+  Thema: |
+    Bauvorschriften bei Antennenbau
+-
+  Fragen: |
+    vd107 vd108 vd111 vd123 vd209 vd211 vd218
+  Thema: |
+    Rufzeichen, grundsätzliches
+-
+  Fragen: |
+    vc121 vd102 vd501-vd511
+  Thema: |
+    Relais und Baken
+-
+  Fragen: |
+    ve113-ve117
+  Thema: |
+    In Deutschland ausgewiesene VHF/UHF-Bänder
+-
+  Fragen: |
+    vd129 vk105
+  Thema: |
+    /AM /MM
+-
+  Fragen: |
+    vd121
+  Thema: |
+    Träger setzen.
+-
+  Fragen: |
+    vb108 vb109 vb110 
+  Thema: |
+    Rufzeichen im Ausland nach CEPT-Empfehlungen
+-
+  Fragen: |
+    vd120
+  Thema: |
+    Dummyload
+-
+  Fragen: |
+    ve138-ve141
+  Thema: |
+    Leistungsgrenzen VHF / UHF
+-
+  Fragen: |
+    vc129
+  Thema: |
+    Amateurfunkfrequenzen
+-
+  Fragen: |
+    vd119 vh105
+  Thema: |
+    Es gelten die allgemeinen Regeln der Technik - aber die Einhaltung muss nicht nachgewiesen werden.
+-
+  Fragen: |
+    ve118-ve119
+  Thema: |
+    Besonderheiten Klasse E
+-
+  Fragen: |
+    vg111-vg113
+  Thema: |
+    EMVG - Geräte zu eng

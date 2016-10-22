@@ -1,0 +1,219 @@
+---
+BB103:
+  am_Besten_nach_Lektion: "bv04"
+  Lektionskandidaten: [ "bv04", "bv10" ]
+  Fragenthema: "Vermischte Betriebsabkürzungen."
+  verwandte_Fragen: [ "BB101", "BB111", "BE111", "BE113" ]
+BB204:
+  am_Besten_nach_Lektion: "bv03"
+  Lektionskandidaten: [ "bv03", "bv10", "bv11" ]
+  Fragenthema: "Q-Gruppen"
+  verwandte_Fragen: [ "BB201", "BB202", "BB203", "BB205", "BB206", "BB207", "BB208", "BB209", "BE105" ]
+BB312:
+  am_Besten_nach_Lektion: "bv13"
+  weil: "Was soll das in der Techniklektion e16?"
+BC219:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv09", "bv11" ]
+  Fragenthema: "Bandplan 2m"
+  verwandte_Fragen: [ "BC104", "BC202", "BC203", "BC204", "BC205", "BC207", "BC208", "BC218" ]
+BC220:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv08", "bv10", "bv11" ]
+  Fragenthema: "Baken."
+  verwandte_Fragen: [ "BE403", "BE409" ]
+BD105:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichen."
+  verwandte_Fragen: [ "BD102", "BD103", "BD104", "BD112", "BD113", "BD114" ]
+BE301:
+  am_Besten_nach_Lektion: "bv12"
+  weil: "Was soll das in der Techniklektion e16?"
+BE304:
+  am_Besten_nach_Lektion: "bv12"
+  Lektionskandidaten: [ "e16", "bv12" ]
+  Fragenthema: "Packet Radio"
+  verwandte_Fragen: [ "BE305", "BE306", "BE307", "BE308", "BE309", "BE410" ]
+BE308:
+  am_Besten_nach_Lektion: "bv12"
+  weil: "was soll das in der Techniklektion e16?"
+BE404:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv11", "bv13" ]
+  Fragenthema: "Relais"
+  verwandte_Fragen: [ "BE401", "BE402", "BE405", "BE406" ]
+TA204:
+  am_Besten_nach_Lektion: "e01"
+  Lektionskandidaten: [ "e01", "e03" ]
+  Fragenthema: "Ohmsches Gesetz und"
+  verwandte_Fragen: [ "TA201", "TB902", "TB903", "TB904" ]
+TB803:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "e14", "e15", "e18" ]
+  Fragenthema: "FM"
+  verwandte_Fragen: [ "TD502", "TE102", "TE201", "TE202", "TE203", "TE204", "TF302", "TG103", "TG306", "TG401", "TK204", "TK301" ]
+TC304:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "e06", "e08", "e17" ]
+  Fragenthema: "Magnetisches Feld, Spule, Spulenkerne"
+  verwandte_Fragen: [ "TB401", "TB402", "TB403", "TB405", "TJ101" ]
+TE203:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "e14", "e15", "e18" ]
+  Fragenthema: "FM"
+  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE204", "TF302", "TG103", "TG306", "TG401", "TK204", "TK301" ]
+TE204:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "e14", "e15", "e18" ]
+  Fragenthema: "FM"
+  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE203", "TF302", "TG103", "TG306", "TG401", "TK204", "TK301" ]
+TF302:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "e14", "e15", "e18" ]
+  Fragenthema: "FM"
+  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE203", "TE204", "TG103", "TG306", "TG401", "TK204", "TK301" ]
+TG306:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "e14", "e15", "e18" ]
+  Fragenthema: "FM"
+  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE203", "TE204", "TF302", "TG103", "TG401", "TK204", "TK301" ]
+TG307:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "e15", "e18" ]
+  Fragenthema: "Ausgangsleistung bei SSB, Splatter"
+  verwandte_Fragen: [ "TG101", "TG104", "TG105", "TK203" ]
+TG401:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "e14", "e15", "e18" ]
+  Fragenthema: "FM"
+  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE203", "TE204", "TF302", "TG103", "TG306", "TK204", "TK301" ]
+TG505:
+  am_Besten_nach_Lektion: "e17"
+  Lektionskandidaten: [ "e04", "e17" ]
+  Fragenthema: "Dummy Load"
+  verwandte_Fragen: [ "TC109", "TJ109", "TJ110" ]
+TK301:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "e14", "e15", "e18" ]
+  Fragenthema: "FM"
+  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE203", "TE204", "TF302", "TG103", "TG306", "TG401", "TK204" ]
+VA303:
+  am_Besten_nach_Lektion: "bv05"
+  Lektionskandidaten: [ "bv01", "bv05", "bv08" ]
+  Fragenthema: "Grundlegendes aus den Radio Regulations"
+  verwandte_Fragen: [ "VA101", "VA102", "VA103", "VA104", "VA201", "VA202", "VA203", "VA302" ]
+VA406:
+  am_Besten_nach_Lektion: "bv06"
+  weil: "In bv05 gibt es nur eine V-Frage, das lohnt nicht."
+VC121:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv05", "bv08" ]
+  Fragenthema: "Relais und Baken"
+  verwandte_Fragen: [ "VD102", "VD501", "VD502", "VD503", "VD504", "VD505", "VD506", "VD507", "VD508", "VD509", "VD510", "VD511" ]
+VC123:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv05", "bv06", "bv08" ]
+  Fragenthema: "Klubstation"
+  verwandte_Fragen: [ "VD101", "VD210", "VD223", "VD401", "VD402", "VD403", "VD404", "VD405", "VD406", "VD407", "VD408", "VD409", "VD410", "VD411" ]
+VD108:
+  am_Besten_nach_Lektion: "bv06"
+  Lektionskandidaten: [ "bv01", "bv06" ]
+  Fragenthema: "Rufzeichen, grundsätzliches"
+  verwandte_Fragen: [ "VD107", "VD111", "VD123", "VD209", "VD211", "VD218" ]
+VD202:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichenkunde"
+  verwandte_Fragen: [ "VD106", "VD201", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
+VD203:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichenkunde"
+  verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
+VD204:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichenkunde"
+  verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
+VD207:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichenkunde"
+  verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
+VD208:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichenkunde"
+  verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
+VD211:
+  am_Besten_nach_Lektion: "bv06"
+  Lektionskandidaten: [ "bv01", "bv06" ]
+  Fragenthema: "Rufzeichen, grundsätzliches"
+  verwandte_Fragen: [ "VD107", "VD108", "VD111", "VD123", "VD209", "VD218" ]
+VD214:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichenkunde"
+  verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
+VD215:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichenkunde"
+  verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD216", "VD217", "VD219", "VD220", "VD221" ]
+VD216:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichenkunde"
+  verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD217", "VD219", "VD220", "VD221" ]
+VD217:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichenkunde"
+  verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD219", "VD220", "VD221" ]
+VD219:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichenkunde"
+  verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD220", "VD221" ]
+VD221:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv08" ]
+  Fragenthema: "Deutsche Rufzeichenkunde"
+  verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220" ]
+VD408:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv05", "bv06", "bv08" ]
+  Fragenthema: "Klubstation"
+  verwandte_Fragen: [ "VC123", "VD101", "VD210", "VD223", "VD401", "VD402", "VD403", "VD404", "VD405", "VD406", "VD407", "VD409", "VD410", "VD411" ]
+VD409:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv05", "bv06", "bv08" ]
+  Fragenthema: "Klubstation"
+  verwandte_Fragen: [ "VC123", "VD101", "VD210", "VD223", "VD401", "VD402", "VD403", "VD404", "VD405", "VD406", "VD407", "VD408", "VD410", "VD411" ]
+VD410:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv05", "bv06", "bv08" ]
+  Fragenthema: "Klubstation"
+  verwandte_Fragen: [ "VC123", "VD101", "VD210", "VD223", "VD401", "VD402", "VD403", "VD404", "VD405", "VD406", "VD407", "VD408", "VD409", "VD411" ]
+VD509:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv05", "bv08" ]
+  Fragenthema: "Relais und Baken"
+  verwandte_Fragen: [ "VC121", "VD102", "VD501", "VD502", "VD503", "VD504", "VD505", "VD506", "VD507", "VD508", "VD510", "VD511" ]
+VD510:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv05", "bv08" ]
+  Fragenthema: "Relais und Baken"
+  verwandte_Fragen: [ "VC121", "VD102", "VD501", "VD502", "VD503", "VD504", "VD505", "VD506", "VD507", "VD508", "VD509", "VD511" ]
+VE150:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv05", "bv09" ]
+  Fragenthema: "Nationale Bandpläne (grundsätzliches)"
+  verwandte_Fragen: [ "VD104", "VD105", "VE101", "VE102", "VE103", "VF105", "VF106" ]
+VK104:
+  am_Besten_nach_Lektion: "bv05"
+  Lektionskandidaten: [ "bv01", "bv05" ]
+  Fragenthema: "Grundsätzliches aus dem AfuG"
+  verwandte_Fragen: [ "VC101", "VC102", "VC103", "VC104", "VC105", "VC106", "VC111", "VC112", "VC114", "VC119" ]
+

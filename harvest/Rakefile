@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'net/http'
 require 'nokogiri'
 
@@ -9,7 +10,6 @@ require 'nokogiri'
 
 # Without SSL:
 @oldclient = Net::HTTP.new('www.darc.de')
-
 
 desc "do it all"
 task :default do |t|
@@ -29,26 +29,23 @@ task :default do |t|
   harvest.print "\n  },\n  \"time\": \"#{Time.now.strftime('%FT%T%:z')}\"\n  }\n";
 end
 
-task :try do |t|
-  grab_as_html("/", reccount = 0, client = Net::HTTP.new('localhost', 7777))
-end
-
-def grab_as_html(path, reccount = 0, client = @client)
+def grab_html_body(path, reccount = 0, client = @client)
   raise "Too much redirection: #{path}" unless reccount <= 5
   response = client.request_get(path, {'user-agent' => 'DJ3EI\'s QLT spider, see http://www.chaoswelle.de/Lehrgang_Berlin_Selbstkontrolle' })
   if response.is_a?(Net::HTTPSuccess)
     if /^text\/html(;.*)?$/i =~ response['content-type']
-      Nokogiri::HTML(response.body)
+      return response.body
     else
       raise "Don't know how to deal with content-type \"#{response['content-type']}\""
     end
   elsif response.is_a?(Net::HTTPFound)
     newpath = response['location']
     $stderr.print "INFO: Redirection from #{path} to #{newpath}\n"
+    raise "Insane: Too many redirects." unless reccount < 5
     if /^http:\/\/www.darc.de(\/.+)$/ =~ newpath
-      grab_as_html($1, reccount + 1, @oldclient)
+      grab_html_body($1, reccount + 1, @oldclient)
     elsif /^https:\/\/www.darc.de(\/.+)$/ =~ newpath
-      grab_as_html($1, reccount + 1, @client)
+      grab_html_body($1, reccount + 1, @client)
     else
       raise "Do not follow redirect to #{newpath}"
     end
@@ -57,15 +54,21 @@ def grab_as_html(path, reccount = 0, client = @client)
   end
 end
 
+def grab_as_html(path, reccount = 0, client = @client)
+  Nokogiri::HTML(grab_html_body(path, 0, client))
+end
+
 # http://www.darc.de/der-club/referate/ajw/lehrgang-bv/bv10/
 
+# Key: Course section name. Value: URI of course section.
 @section2uri = {}
 
+# Key: Course section name. Value: List of questions.
 @section2questions = {}
 
 def make_task(section)
-  desc "Fetch questions for section #{section}"
 
+  desc "Fetch questions for section #{section}"
   new_task = task section.to_sym => [:grab_section_links] do |t|
     section = t.to_s
     raise "Double section execution #{section}" if @section2questions.key? section
@@ -77,7 +80,7 @@ def make_task(section)
       found_q = false
       a.xpath('b').each do |b|
         if /^\s*(\w\w\d\d\d)\s*$/ =~ b.content
-          @section2questions[section] << b.content
+          @section2questions[section] << $1
           found_q = true
         end
       end
@@ -92,7 +95,7 @@ def make_task(section)
                    raise "Do not understand content of #{a.to_html}"
                  end
           if /^\s*(\w\w\d\d\d)\s*$/ =~ text
-            @section2questions[section] << text
+            @section2questions[section] << $1
             found_q = true
           end
         elsif a.children.size == 0
@@ -111,24 +114,172 @@ end
 (1 .. 14).each { |n| make_task("bv#{sprintf "%02d", n}") }
 
 desc "grab section links"
-task :grab_section_links do |t|
-  doc = grab_as_html('/der-club/referate/ajw/darc-online-lehrgang/')
+task :grab_section_links => [:pull_link_page] do |t|
+  doc = Nokogiri::HTML(@link_page)
   doc.xpath('//table/tbody/tr/td/a').each do |a|
     if /^(der\-club\/referate\/ajw\/lehrgang\-[^\/]+\/([^\/\d]+\d+)\/)$/ =~ a['href']
       link = "/#{$1}"
       section = $2
       @section2uri[section] = link
-      # p link
+      # print "#{section} -> #{link}\n"
     else
-      # p "ignoring \"#{a['href']}\""
+      $stderr.print "Ignoring potential section link \"#{a['href']}\".\n"
     end
   end
-  # Sigh...
-  @section2uri['e05'] = '/?id=29317'
-  @section2uri['e06'] = '/?id=29318'
-  @section2uri['e07'] = '/?id=29319'
-  @section2uri['e08'] = '/?id=29320'
-  @section2uri['e09'] = '/?id=29321'
   # Cool URIs don't change. I hope they know that at DARC AJW Referat...
   # @section2uri.keys.sort.each {|k| print "#{k}: #{@section2uri[k]}\n"}
 end
+
+desc "pull link page"
+task :pull_link_page do |t|
+  @link_page = grab_html_body('/der-club/referate/ajw/darc-online-lehrgang/')
+end
+
+# Block nodes no empty space text node children. Remove them.
+def remove_emptytext_below_blocknodes(nodes)
+  nodes.each do |node|
+    node.children.each {|c| c.unlink if c.text? and c.inner_text =~ /^\s*$/ }
+  end
+end
+
+def cleanup_node(node)
+  ['header', 'body', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'table', 'tbody', 'tr', 'th', 'ul', 'li', 'ol'].each do |tag|
+    remove_emptytext_below_blocknodes(node.xpath("//#{tag}"))
+  end
+  node
+end
+
+desc "save old link page"
+task :save_old_link_page => [:pull_link_page] do |t|
+  File.open("old_link_page.html", "w") do |f|
+    f.write(@link_page)
+  end
+  File.open("old_link_page_formatted.html", "w") do |f|
+    # For some reason, this does not indent as intended:
+    f.write(cleanup_node(Nokogiri::HTML(@link_page).root).to_xhtml(:indent => 2, :encoding => 'UTF-8'))
+  end
+end
+
+desc "pimp Lernplan"
+task :pimp_lernplan  => [:pull_link_page] do |t|
+  page = Nokogiri::HTML(@link_page)
+  plan_div = cleanup_node(page.xpath('//h1[. = "Empfohlener Lernplan"]')[0].parent.parent)
+  table_div = cleanup_node(plan_div.next)
+  table_div.xpath('//a[not(@href) and not(@name)]').each do |silly_a|
+    td = silly_a.parent
+    silly_a.children.each do |c|
+      c.parent = td
+    end
+    silly_a.unlink
+  end
+  table_div.xpath('//td/a[@href]').each do |a|
+    a.remove_attribute('title')
+    if a['href'] == "?id=29297"
+      a['href'] = 'der-club/referate/ajw/lehrgang-bv/bv04/'
+    elsif a['href'] == "?id=29317"
+      a['href'] = 'der-club/referate/ajw/lehrgang-te/e05/'
+    elsif a['href'] == "?id=29318"
+      a['href'] = 'der-club/referate/ajw/lehrgang-te/e06/'
+    elsif a['href'] == "?id=29319"
+      a['href'] = 'der-club/referate/ajw/lehrgang-te/e07/'
+    elsif a['href'] == "?id=29320"
+      a['href'] = 'der-club/referate/ajw/lehrgang-te/e08/'
+    elsif a['href'] == "?id=29321"
+      a['href'] = 'der-club/referate/ajw/lehrgang-te/e09/'
+    end
+    a.xpath('.//b').each do |b|
+      text = b.inner_text
+      if text =~ /^(.*[^\s])[\s]+$/
+        b_text_without_trailing_space = $1
+        b.content = b_text_without_trailing_space
+        b.after(' ')
+      end
+    end
+    td = a.parent
+    if td.name == 'td'
+      c = td.children
+      last_child = c[c.size - 1]
+      if last_child.text?
+        if last_child.inner_text =~ /^\s*$/
+          last_child.content = ' '
+        else
+          text = last_child.content
+          text = $1 if text =~ /^(.*[^\s])[\s]+$/
+          last_child.unlink
+          ac = a.children
+          ac[ac.size - 1].after(text)
+          a.after(' ')
+        end
+      elsif last_child.element? and last_child.name == 'a'
+        a.after(' ')
+      else
+        raise "Did not expect this at the end of a <td>...:  #{last_child.inspect}"
+      end
+    else
+      raise "Did not expect #{td.inspect}"
+    end
+    ac = a.children
+    if ac[ac.size - 1].text? and ac[ac.size - 1].content =~ /^(.*[^\s])[\s]+$/
+      ac[ac.size - 1].content = $1
+    end
+  end
+  File.open('lernplan.html', 'w') do |f|
+    f.write plan_div.to_xhtml(:indent => 2, :encoding => 'UTF-8')
+    f.write "\n"
+    f.write table_div.to_xhtml(:indent => 2, :encoding => 'UTF-8').gsub('</a> </td>', '</a></td>')
+  end
+end
+
+desc "pimp TE-Inhaltsverzeichnis"
+task :pimp_te_toc => [:pull_link_page] do |t|
+  page = Nokogiri::HTML(@link_page)
+  te_h3 = page.xpath('//h3[.="Übersicht Technik Klasse E"]')
+  raise "Intended to find only one \"Übersicht Technik Klasse E\"" unless te_h3.size == 1
+  te_ul = te_h3[0].next
+  raise "Intended to hunt for an <ul>" unless te_ul.name == 'ul'
+  te_ul.xpath('//a[@href and @title]').each do |a|
+    a.remove_attribute('title')
+    if not a.previous.nil?
+      a.previous.content = "#{$1} " if a.previous.inner_text =~ /^(.+) $/
+    end
+  end
+  File.open('te_toc.html', 'w') do |f|
+    f.write te_h3.to_xhtml(:indent => 2, :encoding => 'UTF-8')
+    f.write("\n")
+    f.write te_ul.to_xhtml(:indent => 2, :encoding => 'UTF-8')
+  end
+end
+
+# They currently have a few strang links:
+@odd_e_link = {}
+@odd_e_link['e05'] = '/?id=29317'
+@odd_e_link['e06'] = '/?id=29318'
+@odd_e_link['e07'] = '/?id=29319'
+@odd_e_link['e08'] = '/?id=29320'
+@odd_e_link['e09'] = '/?id=29321'
+
+# For each such strange link, check that it leads to the page it should
+# and the normal, good, canonical link also works.
+# If all is well, fiddle the canonical link into our table.
+# We use one task of per strange link.
+@odd_e_link.keys.sort.each do |e|
+  desc "check #{e} same content canonical and odd link"
+  task "fiddle_#{e}_link".to_sym => [:grab_section_links] do |t|
+    raise "Seems they fixed the link for #{e} - remove fiddle code!" unless @section2uri[e].nil?
+    odd_link = @odd_e_link[e]
+    good_link = "/der-club/referate/ajw/lehrgang-te/#{e}/"
+    both_results = [good_link, odd_link].map {|path| grab_html_body(path)}
+    if both_results[0] == both_results[1]
+      @section2uri[e] = good_link
+    else
+      raise "Content not identical. #{odd_link} -> #{both_results[0]}\n\n#{good_link} -> #{both_results[1]}"
+    end
+  end
+  task e.to_sym => "fiddle_#{e}_link".to_sym
+end
+
+# Umbrella task for strange link fiddling.
+task :fiddle_e_links => @odd_e_link.keys.sort.map{|e| "fiddle_#{e}_link".to_sym} do |t|
+  @section2uri.keys.sort.each {|k| print "#{k}: #{@section2uri[k]}\n"}
+end
+
