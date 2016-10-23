@@ -52,12 +52,12 @@ VA406:
   am_Besten_nach_Lektion: "bv06"
   weil: "In bv05 gibt es nur eine V-Frage, das lohnt nicht."
 VC121:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv05", "bv08" ]
   Fragenthema: "Relais und Baken"
   verwandte_Fragen: [ "VD102", "VD501", "VD502", "VD503", "VD504", "VD505", "VD506", "VD507", "VD508", "VD509", "VD510", "VD511" ]
 VC123:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv05", "bv06", "bv08" ]
   Fragenthema: "Klubstation"
   verwandte_Fragen: [ "VD101", "VD210", "VD223", "VD401", "VD402", "VD403", "VD404", "VD405", "VD406", "VD407", "VD408", "VD409", "VD410", "VD411" ]
@@ -127,32 +127,32 @@ VD221:
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220" ]
 VD408:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv05", "bv06", "bv08" ]
   Fragenthema: "Klubstation"
   verwandte_Fragen: [ "VC123", "VD101", "VD210", "VD223", "VD401", "VD402", "VD403", "VD404", "VD405", "VD406", "VD407", "VD409", "VD410", "VD411" ]
 VD409:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv05", "bv06", "bv08" ]
   Fragenthema: "Klubstation"
   verwandte_Fragen: [ "VC123", "VD101", "VD210", "VD223", "VD401", "VD402", "VD403", "VD404", "VD405", "VD406", "VD407", "VD408", "VD410", "VD411" ]
 VD410:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv05", "bv06", "bv08" ]
   Fragenthema: "Klubstation"
   verwandte_Fragen: [ "VC123", "VD101", "VD210", "VD223", "VD401", "VD402", "VD403", "VD404", "VD405", "VD406", "VD407", "VD408", "VD409", "VD411" ]
 VD509:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv05", "bv08" ]
   Fragenthema: "Relais und Baken"
   verwandte_Fragen: [ "VC121", "VD102", "VD501", "VD502", "VD503", "VD504", "VD505", "VD506", "VD507", "VD508", "VD510", "VD511" ]
 VD510:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv05", "bv08" ]
   Fragenthema: "Relais und Baken"
   verwandte_Fragen: [ "VC121", "VD102", "VD501", "VD502", "VD503", "VD504", "VD505", "VD506", "VD507", "VD508", "VD509", "VD511" ]
 VE150:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv05"
   Lektionskandidaten: [ "bv05", "bv09" ]
   Fragenthema: "Nationale Bandpläne (grundsätzliches)"
   verwandte_Fragen: [ "VD104", "VD105", "VE101", "VE102", "VE103", "VF105", "VF106" ]
