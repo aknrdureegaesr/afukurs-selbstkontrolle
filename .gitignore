@@ -5,3 +5,4 @@ harvest/*.html
 grep.sh
 alter_kurs
 potential_conflicts.yaml
+*.QLT
