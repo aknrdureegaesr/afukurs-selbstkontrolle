@@ -1,5 +1,7 @@
 harvest/harvest.json
+harvest/te_harvest.json
 harvest/*-Dateien
 harvest/*.html
+grep.sh
 alter_kurs
 potential_conflicts.yaml

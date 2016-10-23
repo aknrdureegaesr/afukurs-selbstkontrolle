@@ -55,6 +55,15 @@ task :load_harvest do |t|
       raise "Did not expect #{node.inspect}"
     end
   end
+  YAML.parse_file('te_harvest.json').root.children.each do |q2sec|
+    q = q2sec.children[0].value.upcase
+    sec = q2sec.children[1].value
+    if @section2qs_harvest.key? sec
+      @section2qs_harvest[sec] << q
+    else
+      @section2qs_harvest[sec] = Set.new([q])
+    end
+  end
   @section2qs_harvest.keys.sort.each do |section|
     @section2qs_harvest[section].each do |q|
       if @q2section_harvest.key? q
@@ -79,6 +88,20 @@ task :section_closure => [:load_harvest, :load_families] do |t|
         $stderr.print "WARN: In no family: #{q}\n"
         @section2qs_closure[section] << q
       end
+    end
+  end
+end
+
+desc "List questions never mentioned in the course."
+task :list_missing_questions => [:load_harvest, :load_families] do |t|
+  unmentioned_qs = []
+  @q2fam.keys.sort.each do |q|
+    unmentioned_qs << q unless @q2section_harvest.key? q
+  end
+  unmentioned_qs.each_slice(10) {|slice| $stderr.write("#{slice.join(', ')}\n") }
+  File.open("grep.sh", "w") do |f|
+    unmentioned_qs.each do |q|
+      f.write("grep -li '#{q}' harvest/*.html && echo '#{q}\n'\n")
     end
   end
 end

@@ -43,61 +43,6 @@ BE404:
   Lektionskandidaten: [ "bv11", "bv13" ]
   Fragenthema: "Relais"
   verwandte_Fragen: [ "BE401", "BE402", "BE405", "BE406" ]
-TA204:
-  am_Besten_nach_Lektion: "e01"
-  Lektionskandidaten: [ "e01", "e03" ]
-  Fragenthema: "Ohmsches Gesetz und"
-  verwandte_Fragen: [ "TA201", "TB902", "TB903", "TB904" ]
-TB803:
-  am_Besten_nach_Lektion: "?"
-  Lektionskandidaten: [ "e14", "e15", "e18" ]
-  Fragenthema: "FM"
-  verwandte_Fragen: [ "TD502", "TE102", "TE201", "TE202", "TE203", "TE204", "TF302", "TG103", "TG306", "TG401", "TK204", "TK301" ]
-TC304:
-  am_Besten_nach_Lektion: "?"
-  Lektionskandidaten: [ "e06", "e08", "e17" ]
-  Fragenthema: "Magnetisches Feld, Spule, Spulenkerne"
-  verwandte_Fragen: [ "TB401", "TB402", "TB403", "TB405", "TJ101" ]
-TE203:
-  am_Besten_nach_Lektion: "?"
-  Lektionskandidaten: [ "e14", "e15", "e18" ]
-  Fragenthema: "FM"
-  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE204", "TF302", "TG103", "TG306", "TG401", "TK204", "TK301" ]
-TE204:
-  am_Besten_nach_Lektion: "?"
-  Lektionskandidaten: [ "e14", "e15", "e18" ]
-  Fragenthema: "FM"
-  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE203", "TF302", "TG103", "TG306", "TG401", "TK204", "TK301" ]
-TF302:
-  am_Besten_nach_Lektion: "?"
-  Lektionskandidaten: [ "e14", "e15", "e18" ]
-  Fragenthema: "FM"
-  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE203", "TE204", "TG103", "TG306", "TG401", "TK204", "TK301" ]
-TG306:
-  am_Besten_nach_Lektion: "?"
-  Lektionskandidaten: [ "e14", "e15", "e18" ]
-  Fragenthema: "FM"
-  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE203", "TE204", "TF302", "TG103", "TG401", "TK204", "TK301" ]
-TG307:
-  am_Besten_nach_Lektion: "?"
-  Lektionskandidaten: [ "e15", "e18" ]
-  Fragenthema: "Ausgangsleistung bei SSB, Splatter"
-  verwandte_Fragen: [ "TG101", "TG104", "TG105", "TK203" ]
-TG401:
-  am_Besten_nach_Lektion: "?"
-  Lektionskandidaten: [ "e14", "e15", "e18" ]
-  Fragenthema: "FM"
-  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE203", "TE204", "TF302", "TG103", "TG306", "TK204", "TK301" ]
-TG505:
-  am_Besten_nach_Lektion: "e17"
-  Lektionskandidaten: [ "e04", "e17" ]
-  Fragenthema: "Dummy Load"
-  verwandte_Fragen: [ "TC109", "TJ109", "TJ110" ]
-TK301:
-  am_Besten_nach_Lektion: "?"
-  Lektionskandidaten: [ "e14", "e15", "e18" ]
-  Fragenthema: "FM"
-  verwandte_Fragen: [ "TB803", "TD502", "TE102", "TE201", "TE202", "TE203", "TE204", "TF302", "TG103", "TG306", "TG401", "TK204" ]
 VA303:
   am_Besten_nach_Lektion: "bv05"
   Lektionskandidaten: [ "bv01", "bv05", "bv08" ]

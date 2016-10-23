@@ -11,6 +11,9 @@ require 'nokogiri'
 # Without SSL:
 @oldclient = Net::HTTP.new('www.darc.de')
 
+# Eckart's site:
+@e_client = Net::HTTP.new('www.amateurfunkpruefung.de')
+
 desc "do it all"
 task :default do |t|
   harvest = File.open("harvest.json", "w")
@@ -54,7 +57,7 @@ def grab_html_body(path, reccount = 0, client = @client)
   end
 end
 
-def grab_as_html(path, reccount = 0, client = @client)
+def grab_as_html(path, client = @client)
   Nokogiri::HTML(grab_html_body(path, 0, client))
 end
 
@@ -283,3 +286,22 @@ task :fiddle_e_links => @odd_e_link.keys.sort.map{|e| "fiddle_#{e}_link".to_sym}
   @section2uri.keys.sort.each {|k| print "#{k}: #{@section2uri[k]}\n"}
 end
 
+desc "Harvest the links from http://www.amateurfunkpruefung.de/lehrg/aufgabensuche_E.html"
+task :harvest_eckarts_te_links => [] do |t|
+  q2sec = {}
+  grab_as_html('/lehrg/aufgabensuche_E.html', @e_client).xpath('//a[@href]').each do |a|
+    if a.inner_text =~ /^\w\w\d\d\d$/
+      l = a['href']
+      if l =~ /^https:\/\/www\.darc\.de\/der\-club\/referate\/ajw\/lehrgang\-te\/(e\d\d)\/.+$/
+        q2sec[a.inner_text] = $1
+      else
+        $stderr.write "WARN: Ignoring #{a.to_html}\n"
+      end
+    end
+  end
+  File.open("te_harvest.json", 'w') do |f|
+    f.write "[\n"
+    f.write q2sec.keys.sort.map{|q| "  \"#{q}\": \"#{q2sec[q]}\""}.join(",\n")
+    f.write "\n]\n"
+  end
+end
