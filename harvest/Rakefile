@@ -253,39 +253,6 @@ task :pimp_te_toc => [:pull_link_page] do |t|
   end
 end
 
-# They currently have a few strang links:
-@odd_e_link = {}
-@odd_e_link['e05'] = '/?id=29317'
-@odd_e_link['e06'] = '/?id=29318'
-@odd_e_link['e07'] = '/?id=29319'
-@odd_e_link['e08'] = '/?id=29320'
-@odd_e_link['e09'] = '/?id=29321'
-
-# For each such strange link, check that it leads to the page it should
-# and the normal, good, canonical link also works.
-# If all is well, fiddle the canonical link into our table.
-# We use one task of per strange link.
-@odd_e_link.keys.sort.each do |e|
-  desc "check #{e} same content canonical and odd link"
-  task "fiddle_#{e}_link".to_sym => [:grab_section_links] do |t|
-    raise "Seems they fixed the link for #{e} - remove fiddle code!" unless @section2uri[e].nil?
-    odd_link = @odd_e_link[e]
-    good_link = "/der-club/referate/ajw/lehrgang-te/#{e}/"
-    both_results = [good_link, odd_link].map {|path| grab_html_body(path)}
-    if both_results[0] == both_results[1]
-      @section2uri[e] = good_link
-    else
-      raise "Content not identical. #{odd_link} -> #{both_results[0]}\n\n#{good_link} -> #{both_results[1]}"
-    end
-  end
-  task e.to_sym => "fiddle_#{e}_link".to_sym
-end
-
-# Umbrella task for strange link fiddling.
-task :fiddle_e_links => @odd_e_link.keys.sort.map{|e| "fiddle_#{e}_link".to_sym} do |t|
-  @section2uri.keys.sort.each {|k| print "#{k}: #{@section2uri[k]}\n"}
-end
-
 desc "Harvest the links from http://www.amateurfunkpruefung.de/lehrg/aufgabensuche_E.html"
 task :harvest_eckarts_te_links => [] do |t|
   q2sec = {}
