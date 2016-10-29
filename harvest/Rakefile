@@ -2,7 +2,11 @@
 require 'net/http'
 require 'nokogiri'
 
+# These rake tasks access the stuff at the two sites
 # https://www.darc.de/der-club/referate/ajw/darc-online-lehrgang/
+# http://www.amateurfunkpruefung.de/
+# to dig out the information which session of the course
+# covers which BNetzA-question.
 
 # With SSL:
 @client = Net::HTTP.new('www.darc.de', 443)
@@ -85,6 +89,11 @@ def make_task(section)
         if /^\s*(\w\w\d\d\d)\s*$/ =~ b.content
           @section2questions[section] << $1
           found_q = true
+        elsif /^\s*(\w\w)(\d\d\d)\s*bis\s*(\w\w)(\d\d\d)\s*$/ =~ b.content
+          qtype1, qnum1, qtype2, qnum2 = $1, $2.to_i, $3, $4.to_i
+          raise "Unsupported change from #{qtype1} to #{qtype2} in #{b.content}" if qtype1 != qtype2
+          raise "Weird numbering" unless qnum1 < qnum2
+          (qnum1 .. qnum2).each {|qnum|  @section2questions[section] << "#{qtype1}#{qnum}"}
         end
       end
       if not found_q

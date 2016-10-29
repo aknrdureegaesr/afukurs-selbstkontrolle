@@ -1,9 +1,18 @@
 ---
+
+# File started with:
+# rake list_question_conflicts
+
 BB103:
   am_Besten_nach_Lektion: "bv04"
   Lektionskandidaten: [ "bv04", "bv10" ]
   Fragenthema: "Vermischte Betriebsabkürzungen."
   verwandte_Fragen: [ "BB101", "BB111", "BE111", "BE113" ]
+BB202:
+  am_Besten_nach_Lektion: "bv03"
+  Lektionskandidaten: [ "bv03", "bv11" ]
+  Fragenthema: "Q-Gruppen"
+  verwandte_Fragen: [ "BB201", "BB203", "BB204", "BB205", "BB206", "BB207", "BB208", "BB209", "BE105" ]
 BB204:
   am_Besten_nach_Lektion: "bv03"
   Lektionskandidaten: [ "bv03", "bv10", "bv11" ]
@@ -12,6 +21,21 @@ BB204:
 BB312:
   am_Besten_nach_Lektion: "bv13"
   weil: "Was soll das in der Techniklektion e16?"
+BC207:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv09", "bv11" ]
+  Fragenthema: "Bandplan 2m"
+  verwandte_Fragen: [ "BC104", "BC202", "BC203", "BC204", "BC205", "BC208", "BC218", "BC219" ]
+BC210:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv09", "bv11" ]
+  Fragenthema: "SSB, USB, LSB"
+  verwandte_Fragen: [ "BC209" ]
+BC218:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv09", "bv11" ]
+  Fragenthema: "Bandplan 2m"
+  verwandte_Fragen: [ "BC104", "BC202", "BC203", "BC204", "BC205", "BC207", "BC208", "BC219" ]
 BC219:
   am_Besten_nach_Lektion: "?"
   Lektionskandidaten: [ "bv09", "bv11" ]
@@ -23,7 +47,7 @@ BC220:
   Fragenthema: "Baken."
   verwandte_Fragen: [ "BE403", "BE409" ]
 BD105:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichen."
   verwandte_Fragen: [ "BD102", "BD103", "BD104", "BD112", "BD113", "BD114" ]
@@ -38,11 +62,31 @@ BE304:
 BE308:
   am_Besten_nach_Lektion: "bv12"
   weil: "was soll das in der Techniklektion e16?"
+BE403:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv08", "bv11" ]
+  Fragenthema: "Baken."
+  verwandte_Fragen: [ "BC220", "BE409" ]
 BE404:
   am_Besten_nach_Lektion: "?"
   Lektionskandidaten: [ "bv11", "bv13" ]
   Fragenthema: "Relais"
   verwandte_Fragen: [ "BE401", "BE402", "BE405", "BE406" ]
+BE409:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv08", "bv10" ]
+  Fragenthema: "Baken."
+  verwandte_Fragen: [ "BC220", "BE403" ]
+TB402:
+  am_Besten_nach_Lektion: "e06"
+  Lektionskandidaten: [ "e06", "e08" ]
+  Fragenthema: "Magnetisches Feld, Spule, Spulenkerne"
+  verwandte_Fragen: [ "TB401", "TB403", "TB405", "TC304", "TJ101" ]
+TC109:
+  am_Besten_nach_Lektion: "e04"
+  Lektionskandidaten: [ "e04", "e17" ]
+  Fragenthema: "Dummy Load"
+  verwandte_Fragen: [ "TG505", "TJ109", "TJ110" ]
 VA303:
   am_Besten_nach_Lektion: "bv05"
   Lektionskandidaten: [ "bv01", "bv05", "bv08" ]
@@ -51,6 +95,21 @@ VA303:
 VA406:
   am_Besten_nach_Lektion: "bv06"
   weil: "In bv05 gibt es nur eine V-Frage, das lohnt nicht."
+VB110:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv06", "bv07" ]
+  Fragenthema: "Rufzeichen im Ausland nach CEPT-Empfehlungen"
+  verwandte_Fragen: [ "VB108", "VB109" ]
+VB120:
+  am_Besten_nach_Lektion: "?"
+  Lektionskandidaten: [ "bv07", "bv08" ]
+  Fragenthema: "CEPT-Empfehlung T/R&nbsp;61-01 für Kurzzeitbetrieb."
+  verwandte_Fragen: [ "VB103", "VB105", "VB111", "VB113", "VB119" ]
+VC112:
+  am_Besten_nach_Lektion: "bv01"
+  Lektionskandidaten: [ "bv01", "bv05" ]
+  Fragenthema: "Grundsätzliches aus dem AfuG"
+  verwandte_Fragen: [ "VC101", "VC102", "VC103", "VC104", "VC105", "VC106", "VC111", "VC114", "VC119", "VK104" ]
 VC121:
   am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv05", "bv08" ]
