@@ -101,7 +101,7 @@ VB110:
   Fragenthema: "Rufzeichen im Ausland nach CEPT-Empfehlungen"
   verwandte_Fragen: [ "VB108", "VB109" ]
 VB120:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv07"
   Lektionskandidaten: [ "bv07", "bv08" ]
   Fragenthema: "CEPT-Empfehlung T/R&nbsp;61-01 für Kurzzeitbetrieb."
   verwandte_Fragen: [ "VB103", "VB105", "VB111", "VB113", "VB119" ]
