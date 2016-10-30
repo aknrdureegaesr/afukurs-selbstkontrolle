@@ -75,18 +75,63 @@ zum Beispiel gerne mit dem (appetitanregenden) Thema Wellenausbreitung
 angefangen. Also können wir meine (durchaus vorhandenen) `.qlt` -
 Dateien aus dem letzten Kurs nicht einfach nehmen.
 
-Ich hoffe, bis spätestens Ende des Monats Oktober 2016 erste
-.qlt-Dateien liefern zu können.
+## QLT-Dateien
+
+*Die hier gelieferten QLT-Dateien sind noch nicht komplett.* Was es
+schon gibt, liegt im `data` Verzeichnis.  Die Software, um diese
+Dateien zu erzeugen, steckt komplett in zwei `Rakefile`.
 
 Alles in diesem Repo steht unter der Apache-Lizens, siehe LICENSE.txt.
 
 ## Initiale Ernte
 
 In der Datei [harvest.json](harvest.json) finden sich alle Fragen, die
-im Onlinekurs direkt vorkommen.  Die Software, diese Liste von der
-Webseite des DARC zu extrahieren, steckt in `harvest/Rakefile`. Man
-braucht ein halbwegs aktuelles Ruby und das Gem `Nokogiri`
-installiert, wenn man das laufen lassen will; Aufruf schlicht `rake`.
+im Onlinekurs direkt vorkommen.
 
-Dass https://www.darc.de/der-club/referate/ajw/lehrgang-bv/bv10/ nach http
-umleitet, ist bereits gemeldet.
+Die Software, diese Liste von der Webseite des DARC zu extrahieren,
+steckt in `harvest/Rakefile`. Man braucht ein halbwegs aktuelles Ruby
+und das Gem `Nokogiri` installiert, wenn man das laufen lassen will;
+Aufruf schlicht `rake`.
+
+## Generierung der QLT-Dateien
+
+Im Hauptverzeichnis `rake` aufrufen erzeugt die QLT-Dateien im Verzeichnis
+`data`.
+
+## Dateien
+
+### `alle_*.qlt`
+
+Diese Dateien dienen der Kontrolle, ob keine Fragen vergessen worden
+sind.  Sie wurden mit dem Prüfungseditor von `AfuP` einmalig erzeugt
+und hier eingecheckt.
+
+### `conflict_resolution.yaml`
+
+Die Logik ist sich nicht immer sicher, zu welcher Kurslektion eine
+Frage gehört.  Hier kann das geklärt werden, indem diese Datei
+händisch editiert wird.  Die Datei enthält Hintergrundinformationen,
+die vom Programm ignoriert werden, aber für Menschen vielleicht ganz
+nützlich sind.
+
+### `harvest.json` und `te_harvest.json`
+
+Aus Herunterladen der Webseite stark eingedampfte Information, welche
+Frage in welcher Lektion gefunden wurde.  Diese Datei wird komplette
+automatisch erzeugt, sie bitte nicht editieren.
+
+### `learn_batches.yaml`
+
+Material aus früheren Kursen, die einer ganz anderen Gliederung
+gefolgt sind.  Hier sind Fragen zu zusammengehörigen Fragenblöcken
+gegliedert, die sich gut zusammen unterrichten lassen.
+
+Die Datei ist aus dem Datenbestand des früheren Kurses automatisch
+erzeugt worden.
+
+### `otherwise_forgotten.yaml`
+
+Eine sehr schlichte Datei mit Frage-Lektions-Zuordnung.
+
+Ob man eine bestimmte Frage hier oder in `conflict_resolution.yaml`
+einer Lektion zuweist, ist im Ergebnis gleichgültig.
