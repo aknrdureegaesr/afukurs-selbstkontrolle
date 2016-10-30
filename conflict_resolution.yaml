@@ -68,7 +68,7 @@ BE403:
   Fragenthema: "Baken."
   verwandte_Fragen: [ "BC220", "BE409" ]
 BE404:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv11"
   Lektionskandidaten: [ "bv11", "bv13" ]
   Fragenthema: "Relais"
   verwandte_Fragen: [ "BE401", "BE402", "BE405", "BE406" ]
@@ -96,7 +96,7 @@ VA406:
   am_Besten_nach_Lektion: "bv06"
   weil: "In bv05 gibt es nur eine V-Frage, das lohnt nicht."
 VB110:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv07"
   Lektionskandidaten: [ "bv06", "bv07" ]
   Fragenthema: "Rufzeichen im Ausland nach CEPT-Empfehlungen"
   verwandte_Fragen: [ "VB108", "VB109" ]
@@ -126,27 +126,27 @@ VD108:
   Fragenthema: "Rufzeichen, grundsätzliches"
   verwandte_Fragen: [ "VD107", "VD111", "VD123", "VD209", "VD211", "VD218" ]
 VD202:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv06"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
 VD203:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv06"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
 VD204:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv06"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
 VD207:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv06"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
 VD208:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv06"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
@@ -156,32 +156,32 @@ VD211:
   Fragenthema: "Rufzeichen, grundsätzliches"
   verwandte_Fragen: [ "VD107", "VD108", "VD111", "VD123", "VD209", "VD218" ]
 VD214:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv06"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD215", "VD216", "VD217", "VD219", "VD220", "VD221" ]
 VD215:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv06"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD216", "VD217", "VD219", "VD220", "VD221" ]
 VD216:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv06"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD217", "VD219", "VD220", "VD221" ]
 VD217:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv06"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD219", "VD220", "VD221" ]
 VD219:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv06"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD220", "VD221" ]
 VD221:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv06"
   Lektionskandidaten: [ "bv06", "bv08" ]
   Fragenthema: "Deutsche Rufzeichenkunde"
   verwandte_Fragen: [ "VD106", "VD201", "VD202", "VD203", "VD204", "VD205", "VD206", "VD207", "VD208", "VD213", "VD214", "VD215", "VD216", "VD217", "VD219", "VD220" ]

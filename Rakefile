@@ -1,7 +1,7 @@
 # coding: utf-8
 require "yaml"
 
-task :default => [:generate_qlt, :generate_cumulative_qlt, :list_forgotten_questions]
+task :default => [:generate_qlt, :generate_cumulative_qlt, :generate_cumulative_qlt_berlin, :list_forgotten_questions]
 
 # Maps from sections (e.g.: 'bv07') to enumerables of questions (e.g.: ['VB101', 'VB102']).
 # From harvest.json, harvested from web site course material via subdirectory `harvest`:
@@ -35,6 +35,11 @@ task :default => [:generate_qlt, :generate_cumulative_qlt, :list_forgotten_quest
 # Either you can rely on the answer of @section2qs_answer[section],
 # or @section2conflicts.key? section
 @section2conflicts = {}
+
+# According to Eckart http://www.amateurfunkpruefung.de/lehrg/aufgabensuche_E.html ,
+# the following questions are never ever asked and hence highly non-pertinent:
+@never_asked_questions = \
+  Set.new ['TB702', 'TB804', 'TE303', 'TE306', 'TG203', 'TK303', 'TK305', 'TK309', 'TK319']
 
 # All questions known. (Presently without technics class A questions.)
 # This is for double-checking.
@@ -142,7 +147,7 @@ task :decide => [ :load_otherwise_forgotten, :load_harvest, :section_closure, :r
   all_qs.merge(q2sections_harvest.keys)
   all_qs.merge(q2sections_closure.keys)
 
-  all_qs.each do |q|
+  (all_qs - @never_asked_questions).each do |q|
     # First try.
     section = @q2section_resolved[q]
     
@@ -184,11 +189,11 @@ def question_kind(section, qs)
   (qs.first)[0].downcase.to_sym
 end
 
-def write_qlt(dir, section, qs, upto)
+def write_qlt(dir, section, qs, filenamestem, upto)
   subject = question_kind(section, qs)
   fach = {t: 'Technik', b: 'Betriebskunde', v: 'Vorschriften'}[subject]
   raise "Subject not implemented: #{subject}" if fach.nil?
-  filename = dir + "/#{{t: 'te', b: 'be', v: 'vo'}[subject]}-#{upto ? 'upto-' : ''}#{section}.qlt".upcase
+  filename = dir + "/#{{t: 'te', b: 'be', v: 'vo'}[subject]}-#{filenamestem}.qlt".upcase
   $stderr.write("INFO: Writing #{filename}\n")
   if (qs.size < 3)
     $stderr.write "WARN: Cannot generate qlt file #{filename} for #{section}: Have only #{qs.size} of >= 3 questions, namely  #{qs.inspect}.\n"
@@ -220,18 +225,18 @@ task :generate_qlt => [:decide] do |t|
       if kind_letters2conflicts.key? kind_letter
         $stderr.write "WARN: Cannot write #{question_kind(section,qs_one_kind)} for #{section}; please decide [#{kind_letters2conflicts[kind_letter].sort.join(', ')}]\n"
       else
-        write_qlt "data", section, qs_one_kind, false
+        write_qlt "data", section, qs_one_kind, section, false
       end
     end
   end
 end
 
-task :generate_cumulative_qlt => [:decide] do |t|
+def generate_cumulative(sections_and_filenamestems_in_order, dir = "data")
 
   kind2cumulated = {}
   kind_letters_with_conflicts = Set.new
 
-  @section2qs_answer.keys.find_all{|section| not @section2conflicts.key? section}.sort.each do |section|
+  sections_and_filenamestems_in_order.each do |section, filenamestem|
     conflicts = @section2conflicts[section]
     unless conflicts.nil?
       conflicts.sort.chunk{|q| q[0]}.each do |kind_letter, conflicts_this_kind|
@@ -240,13 +245,65 @@ task :generate_cumulative_qlt => [:decide] do |t|
     end
     qs = @section2qs_answer[section]
     qs.sort.chunk{|q| q[0]}.each do |kind_letter, qs_one_kind|
-      kind = question_kind(section, qs)
+      kind = question_kind(section, qs_one_kind)
       kind2cumulated[kind] = Set.new unless kind2cumulated.key? kind
       unless kind_letters_with_conflicts.include? kind_letter
-        write_qlt "data", section, kind2cumulated[kind].merge(qs), true
+        write_qlt dir, section, kind2cumulated[kind].merge(qs_one_kind), filenamestem, true
       end
     end
   end
+end
+
+desc "Generate cumulative QLT files, section order used by Berlin CCC course."
+task :generate_cumulative_qlt_berlin => [:decide] do |t|
+  # Accomodating https://www.chaoswelle.de/Kurs , which progresses in a different order:
+  generate_cumulative [ ['bv01', 'bis-bv01'],
+                        ['e01', 'bis-e01'],
+                        ['bv02', 'bis-bv02'],
+                        ['e02', 'bis-e02'],
+
+                        ['e03', 'bis-e03'],
+                        ['e04', 'bis-e04'],
+                        ['bv03', 'bis-bv03'],
+
+                        ['e05', 'bis-e05'],
+                        ['bv05', 'bis-bv05'],
+
+                        ['bv06', 'bis-bv06'],
+                        ['bv13', 'bis-bv06-n-bv13'],
+
+                        ['e06', 'bis-e06'],
+                        ['e07', 'bis-e07'],
+                        ['e08', 'bis-e08'],
+                        ['bv07', 'bis-bv07-n-bv13'],
+
+                        ['e09', 'bis-e09'],
+                        ['e10', 'bis-e10'],
+                        ['bv08', 'bis-bv08-n-bv13'],
+                        
+                        ['e11', 'bis-e11'],
+                        ['bv09', 'bis-bv09-n-bv13'],
+
+                        ['e12', 'bis-e12'],
+                        ['e13', 'bis-e13'],
+                        ['bv10', 'bis-bv10-n-bv13'],
+
+                        ['e14', 'bis-e14'],
+                        ['e15', 'bis-e15'],
+                        ['bv11', 'bis-bv11-n-bv13'],
+
+                        ['e16', 'bis-e16'],
+                        ['e17', 'bis-e17'],
+                        ['bv12', 'bis-bv13'],
+
+                        ['e18', 'bis-e18'],
+                        ['bv14', 'bis-bv14'] ], 'berlin'
+                                                
+end
+
+desc "Generate cumulative QLT files, normal section order."
+task :generate_cumulative_qlt => [:decide] do |t|
+  generate_cumulative @section2qs_answer.keys.sort.map{|section| [section, "bis-#{section}"]}
 end
 
 desc "Read conflict_resolution.yaml"
@@ -262,8 +319,8 @@ task :read_conflict_resolution do |t|
   end
 end
 
-desc "List question conflicts in prototype potential_conflicts.yaml for conflict_resolution.yaml"
-task :list_question_conflicts => [:decide] do |t|
+desc "Save question conflicts to prototype potential_conflicts.yaml for conflict_resolution.yaml"
+task :save_question_conflicts => [:decide] do |t|
 
   cfxq2sections = reverse(@section2conflicts)
   q2map_node = {}
@@ -314,7 +371,7 @@ task :list_forgotten_questions => [:decide, :load_all_questions, :load_otherwise
   @section2qs_answer.values.each{|qs| qs_remembered.merge qs}
   @section2conflicts.values.each{|qs| qs_remembered.merge qs}
 
-  forgotten_qs = @all_qs - qs_remembered
+  forgotten_qs = @all_qs - @never_asked_questions - qs_remembered
 
   if 0 < forgotten_qs.size
     $stderr.write("WARN: Following questions unhandled:\n")
