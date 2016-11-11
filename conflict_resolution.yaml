@@ -42,7 +42,7 @@ BC219:
   Fragenthema: "Bandplan 2m"
   verwandte_Fragen: [ "BC104", "BC202", "BC203", "BC204", "BC205", "BC207", "BC208", "BC218" ]
 BC220:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv08", "bv10", "bv11" ]
   Fragenthema: "Baken."
   verwandte_Fragen: [ "BE403", "BE409" ]
@@ -63,7 +63,7 @@ BE308:
   am_Besten_nach_Lektion: "bv12"
   weil: "was soll das in der Techniklektion e16?"
 BE403:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv08", "bv11" ]
   Fragenthema: "Baken."
   verwandte_Fragen: [ "BC220", "BE409" ]
@@ -73,7 +73,7 @@ BE404:
   Fragenthema: "Relais"
   verwandte_Fragen: [ "BE401", "BE402", "BE405", "BE406" ]
 BE409:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv08", "bv10" ]
   Fragenthema: "Baken."
   verwandte_Fragen: [ "BC220", "BE403" ]
