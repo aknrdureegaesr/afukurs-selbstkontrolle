@@ -22,22 +22,22 @@ BB312:
   am_Besten_nach_Lektion: "bv13"
   weil: "Was soll das in der Techniklektion e16?"
 BC207:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv09"
   Lektionskandidaten: [ "bv09", "bv11" ]
   Fragenthema: "Bandplan 2m"
   verwandte_Fragen: [ "BC104", "BC202", "BC203", "BC204", "BC205", "BC208", "BC218", "BC219" ]
 BC210:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv09"
   Lektionskandidaten: [ "bv09", "bv11" ]
   Fragenthema: "SSB, USB, LSB"
   verwandte_Fragen: [ "BC209" ]
 BC218:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv09"
   Lektionskandidaten: [ "bv09", "bv11" ]
   Fragenthema: "Bandplan 2m"
   verwandte_Fragen: [ "BC104", "BC202", "BC203", "BC204", "BC205", "BC207", "BC208", "BC219" ]
 BC219:
-  am_Besten_nach_Lektion: "?"
+  am_Besten_nach_Lektion: "bv09"
   Lektionskandidaten: [ "bv09", "bv11" ]
   Fragenthema: "Bandplan 2m"
   verwandte_Fragen: [ "BC104", "BC202", "BC203", "BC204", "BC205", "BC207", "BC208", "BC218" ]
