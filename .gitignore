@@ -1,5 +1,6 @@
 harvest/harvest.json
 harvest/te_harvest.json
+harvest/ta_harvest.json
 harvest/*-Dateien
 harvest/*.html
 grep.sh

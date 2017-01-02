@@ -19,7 +19,7 @@ require 'nokogiri'
 @e_client = Net::HTTP.new('www.amateurfunkpruefung.de')
 
 desc "do it all"
-task :default do |t|
+task :default => [ :harvest_eckarts_a_links, :harvest_eckarts_te_links ] do |t|
   harvest = File.open("harvest.json", "w")
   harvest.print "{\n  \"harvest_from_website\": {\n"
   first = true
@@ -38,7 +38,7 @@ end
 
 def grab_html_body(path, reccount = 0, client = @client)
   raise "Too much redirection: #{path}" unless reccount <= 5
-  response = client.request_get(path, {'user-agent' => 'DJ3EI\'s QLT spider, see http://www.chaoswelle.de/Lehrgang_Berlin_Selbstkontrolle' })
+  response = client.request_get(path, {'user-agent' => 'DJ3EI\'s QLT spider, see https://www.chaoswelle.de/Lehrgang_Berlin_Selbstkontrolle' })
   if response.is_a?(Net::HTTPSuccess)
     if /^text\/html(;.*)?$/i =~ response['content-type']
       return response.body
@@ -78,6 +78,7 @@ def make_task(section)
   desc "Fetch questions for section #{section}"
   new_task = task section.to_sym => [:grab_section_links] do |t|
     section = t.to_s
+    is_ta = section[0] == 'a'
     raise "Double section execution #{section}" if @section2questions.key? section
     @section2questions[section] = Set.new()
     uri = @section2uri[section]
@@ -87,17 +88,24 @@ def make_task(section)
       found_q = false
       a.xpath('b').each do |b|
         if /^\s*(\w\w\d\d\d)\s*$/ =~ b.content
-          @section2questions[section] << $1
+          q = $1.upcase
+          if is_ta
+            if q[0] = 'T' # there is some mention of BJ111 in section a15.
+              @section2questions[section] << "A#{q}"
+            end
+          else
+            @section2questions[section] << q
+          end
           found_q = true
         elsif /^\s*(\w\w)(\d\d\d)\s*bis\s*(\w\w)(\d\d\d)\s*$/ =~ b.content
           qtype1, qnum1, qtype2, qnum2 = $1, $2.to_i, $3, $4.to_i
           raise "Unsupported change from #{qtype1} to #{qtype2} in #{b.content}" if qtype1 != qtype2
           raise "Weird numbering" unless qnum1 < qnum2
-          (qnum1 .. qnum2).each {|qnum|  @section2questions[section] << "#{qtype1}#{qnum}"}
+          (qnum1 .. qnum2).each {|qnum|  @section2questions[section] << (is_ta ? "A#{qtype1}#{qnum}" : "#{qtype1}#{qnum}") }
         end
       end
       if not found_q
-        if a.children.size == 1
+        if a.children.size == 1 or a.children.size == 2 && a.children[1].text? && /^\s*$/ =~ a.children[1].content
           child = a.children[0]
           text = if child.text?
                    child.content
@@ -106,8 +114,17 @@ def make_task(section)
                  else
                    raise "Do not understand content of #{a.to_html}"
                  end
-          if /^\s*(\w\w\d\d\d)\s*$/ =~ text
-            @section2questions[section] << $1
+          if /^\s*(\w\w\d\d\d)\s*$/i =~ text
+            q = $1.upcase
+            if is_ta
+              if q[0] == 'T'
+                @section2questions[section] << "A#{q}"
+              else
+                 # there is some mention of BJ111 in section a15.
+              end
+            else
+              @section2questions[section] << q
+            end
             found_q = true
           end
         elsif a.children.size == 0
@@ -124,6 +141,7 @@ end
 
 (1 .. 18).each { |n| make_task("e#{sprintf "%02d", n}") }
 (1 .. 14).each { |n| make_task("bv#{sprintf "%02d", n}") }
+(1 .. 19).each { |n| make_task("a#{sprintf "%02d", n}") }
 
 desc "grab section links"
 task :grab_section_links => [:pull_link_page] do |t|
@@ -133,7 +151,17 @@ task :grab_section_links => [:pull_link_page] do |t|
       link = "/#{$1}"
       section = $2
       @section2uri[section] = link
-      # print "#{section} -> #{link}\n"
+      # $stderr.print "1: #{section} -> #{link}\n"
+    else
+      $stderr.print "Ignoring potential section link \"#{a['href']}\".\n"
+    end
+  end
+  doc.xpath('//ul[@class="sidemenu"]//a').each do |a|
+    if /^(der\-club\/referate\/ajw\/lehrgang\-[^\/]+\/([^\/\d]+\d+)\/)$/ =~ a['href']
+      link = "/#{$1}"
+      section = $2
+      @section2uri[section] = link
+      # $stderr.print "2: #{section} -> #{link}\n"
     else
       $stderr.print "Ignoring potential section link \"#{a['href']}\".\n"
     end
@@ -259,6 +287,26 @@ task :pimp_te_toc => [:pull_link_page] do |t|
     f.write te_h3.to_xhtml(:indent => 2, :encoding => 'UTF-8')
     f.write("\n")
     f.write te_ul.to_xhtml(:indent => 2, :encoding => 'UTF-8')
+  end
+end
+
+desc "Harvest the links from Klasse A https://www.darc.de/der-club/referate/ajw/darc-online-lehrgang/"
+task :harvest_eckarts_a_links => [ :pull_link_page ] do |t|
+  q2sec = {}
+  Nokogiri::HTML(@link_page).xpath('//a[@href]').each do |a|
+    if a.inner_text =~ /^t\w\d\d\d$/i
+      l = a['href']
+      if l =~ /^https:\/\/www\.darc\.de\/der\-club\/referate\/ajw\/lehrgang\-ta\/(a\d\d)\/.+$/
+        q2sec["A#{a.inner_text.upcase}"] = $1
+      else
+        $stderr.write "WARN: Ignoring #{a.to_html}\n" unless l =~ /lehrgang-te/
+      end
+    end
+  end
+  File.open("ta_harvest.json", 'w') do |f|
+    f.write "[\n"
+    f.write q2sec.keys.sort.map{|q| "  \"#{q}\": \"#{q2sec[q]}\""}.join(",\n")
+    f.write "\n]\n"
   end
 end
 
