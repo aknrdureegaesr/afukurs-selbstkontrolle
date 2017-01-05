@@ -1,0 +1,258 @@
+---
+# Die Fragen hier gehören alle zur Klasse A Techik.
+
+# In a07:
+# > ... die typische Prinzipschaltung eines Gegentaktversteines Gegentaktverstärkers...
+
+# In a07 gibt folgende Beschreibung, was bei Übersteurung von
+# SSB-Signalen angeblich passiert: "Die sinusförmigen Signale werden
+# „rechteckig“ und erzeugen Oberwellen, die sich als Nebenfrequenzen
+# äußern und sich als so genannte „Splatter“ störend bemerkbar machen."
+#
+# Nein. Oberwellen und Splatter haben nichts miteinander zu tun.
+#
+# Durch die Übersteuerung gerät der Verstärker in nichtlineare Kennlinienbereiche.
+# Nichtlineare Kennlinienbereiche verknüpfen Ausgang a und Eingang e nicht nur mit
+# a = v * e, sondern es treten Potenzen auf, a = v2 * e² und a = v3 * e³.
+# Eine "krumme" Kennlinie enthält höhere Potenzen, vergl. z.B. "Taylor-Reihen"
+# oder "Potenz-Reihen".
+#
+# Wenn man nun e = (x + y) schreibt - dabei seien x und y zwei im
+# Eingangssignal vorhandene beispielhafte Einzelsignale x und y mit
+# Frequenzen fx und fy, sagen wir mal, fx < fy, so ergibt sich
+# e³ = (x + y)³ = x³ + 3 * x² * y + 3 * x * y² + y³.
+#
+# Bei den Termen x² * y und x * y² tritt Multiplikation auf, also
+# Mischung.
+#
+# Diese Mischung erzeugt die Frequenzen 2fx - fy und 2fy - fx.
+# Diese beiden Frequenzen liegen direkt neben dem eigentlichen
+# SSB-Kanal.  2fy - fx = fy + (fy - fx) ist so weit links von fy
+# wie fx rechts von fy ist.
+# 2fx - fy = fx - (fy - fx) ist so weit rechts von fx wie
+# fx rechts von fy ist.
+
+# a10: "Der Topfkreis. Als Leitungen verwendet man im UHF-Bereich..."
+# Topfkreise dienen nicht als Leitungen.
+
+# a12: Da kann man in der Übersicht auf "Vergleich AM - SSB" klicken,
+# aber das Link funktioniert nicht.  Auch in anderen Lektionen
+# funktionieren nicht alle Links in den Übersichten.  Es scheint
+# Probleme mit Zeichen außerhalb des US-amerikanischen Zeichenvorrats
+# zu geben.
+
+# a12: DSB ist AM minus Träger. Wenn man den Träger wieder dazu
+# addiert, kriegt man das übliche AM und kann das mit einem
+# AM-Demodulator demodulieren.  So weit, so trivial.
+#
+# Das hat aber alles nichts damit zu tun, wie simple Weltempfänger SSB
+# empfangen.  Wenn man SSB empfangen will, reicht keine Addition, man
+# muss wirklich mischen, also irgendwie multiplizieren.
+#
+# Das tun die auch. DAFÜR ist es nötig, dass das zugefügte
+# Trägersignal sehr viel größer ist als Nutzsignal.  Die eigentlich
+# für AM gedachte Demodulationsdiode gerät durch das große Signal in
+# einen Schaltbetrieb.  Man improvisiert auf diese Weise einen
+# Schaltmischer.
+#
+# Wie so ein Schaltmischer (Produktdetektor) eigentlich funktioniert,
+# erklärst Du nicht.  Meine Lieblingserklärung zum Produktdetektor:
+# 
+# * Man entnimmt der Schaltung, dass die HF im Takt des BFOs mal sorum
+#   und mal andersrum auf den NF-Ausgang geschaltet wird.
+# 
+# * Es wird also die Polarität umgeschaltet.
+#
+# * Mathematisch betrachtet ist "Polarität umschalten" dasselbe wie,
+#   mit einem +1 / -1 - Rechtecksignal zu multiplizieren.
+#
+# * So ein Rechtecksignal ist wiederum eine Sinuswelle b1 plus ganz viele
+#   Oberwellen b3, b5, ... .
+#
+# * Ausklammern:
+#   e * (b1 + b3 + b5 + ...) = e * b1 + e * b3 + e * b5 + ...
+#   Die ursprüngliche Sinuswelle b1 wird mit e multipliziert und liefert
+#   das gewünschte Mischergebnis.
+#
+# * Die Oberwellen mischen auch und liefern weitere Mischergebnisse
+#   bei entsprechend höheren Frequenzen.  Das ist meistens egal,
+#   manchmal stört es und gelegentlich wird es kreativ ausgenutzt.
+
+
+# a17: In TG312 hat die BNetzA einen Fehler eingebaut: Die
+# Ausgangsimpedanz ist nicht niederohmiger, sondern hochohmiger als
+# das, was der Transistor am Kollektor sieht.  Also ist nicht nur die
+# Antwort mit R1, sondern auch die mit C4 , C5 und L2 falsch.  Nun,
+# ja.
+
+# In a17 gibt es "Kapitel 6" und "Kapitel 7" - Links, die nicht funktionieren.
+
+# In a17 findet sich die Aussage: "Röhrenverstärker haben den Vorteil,
+# dass sie einen höheren Wirkungsgrad haben als
+# Transistorendstufen. Das liegt daran, dass Röhren mit hoher Spannung
+# und niedrigem Strom arbeiten. Die Verluste entstehen aber vorwiegend
+# durch den Strom in den Spulen."
+#
+# Ein paar Gegenargumente:
+# 
+# * Man kühlt in einer PA normalerweise die Röhre oder den Transistor,
+#   aber nicht die Spule.
+# 
+# * Nach der Logik müssten Antennentuner verherrend schlechte
+#   Wirkungsgrade haben, wenn sie Spulen enthalten und auf niedrigem
+#   Impedanzniveau laufen, z.B. 50 Ω.
+# 
+# * Eine übliche Spule hat normalerweise eine deutlich höhere Eigengüte,
+#   verglichen mit der Betriebsgüte innerhalb der Schaltung.
+#
+# * Das höhere Impedanzniveau von Röhren-PAs bringt niedrigere Ströme
+#   mit sich, aber gleichzeitig erfordert es entsprechend größere
+#   Induktivitäten. Der pro Volt anliegender HF-Spannung in der Spule
+#   entstehende Verlust steigt entsprechend.
+#
+# * Eine moderne FET-Endstufe im Klasse-E Betrieb steckt die meisten
+#   Röhrenendstufen problemlos in den Sack, was den Wirkungsgrad
+#   betrifft.  In der Tat hängt der Wirkungsgrad m.E. hauptsächlich
+#   von der "Klasse" ab, nicht von der Technologie des verwendeten
+#   aktiven Bauteils.
+
+TB806: a07 # Gehört inhaltlich in den Zusammenhang von TD427.
+           # Beide könnten besser erklärt sein;
+           # in der Lektion taucht immer nur das Wort "Verzerrung" auf.
+           # Dass "Verzerrung" dann "Intermodulation" bedeutet, also,
+           # das Mischprodukte entstehen, fehlt hier.
+           # Dass es die Mischprodukte in den Geschmacksrichtungen
+           # "zweiter Ordnung" und "dritter Ordnung" gibt, habe ich auch nicht gefunden.
+           # Alternativ passt die Frage auch gut nach a18.
+
+TB911: a19 # Wie die dort schon vorhandene TK301
+
+TB912: a16
+
+TB918: a16
+
+TC102: a02 # tc102 gehört inhaltlich zu tc103.
+           # In der Lektion a02 gibt es übrigens Bilder a02/TC102[abcd].gif, die aber zur Frage tc101 gehören.
+
+TC110: a02
+
+TC209: a03
+
+TC501: a05
+TC502: a05
+TC518: a02
+
+TC607: a06 # In der Datei vorhanden, aber <a name=...> fehlt.
+
+TC702: a14
+TD204: a04
+TD227: a03 # Wäre gut, wenn der Text der Lektion auch die hohe Güte von Luftkondensatoren erwähnen würde.
+           # Diese Frage könnte man auch erst in a04 behandeln, aber m.E. passt sie besser nach a03.
+
+TD232: a11 # Sollte man in den Text noch einbauen.
+           # Es gibt ein Bild a04/TD232.gif , das aber zur Frage TD229 gehört (die in a04 besprochen wird).
+
+TD304: a19 # ähnlich tk312
+
+TD512: a12 # Ich schlage vor, als Standardmethode für die Erzeugung von AM
+           # eine passende Schwankung der Versorgungsspannung einer PA zu nennen
+           # und erst als zweiten Weg die Diodenschaltung.
+           # Alternativ passt TD512 auch nach a19.
+           # Und TG207 gehört in denselben Zusammenhang (siehe unten).
+
+TD607: a13
+TE104: a11
+TE107: a07 # Bitte erklären!
+TE203: a11 # Ist dort vorhanden, hat aber einen Tippfehler.
+TE213: a12
+TF309: a01
+
+TF315: a17 # Erklären, dass man an den großen Kondensatoren den
+           # NF-Verstärker erkennt.
+TF316: a17
+
+TF324: a07
+TF328: a12
+TF412: a12 # Nähe TD615
+TF413: a17 # oder a07
+TF415: a17 # Bei TF315
+TF430: a07 
+TF432: a19
+TF433: a19
+TF436: a19
+
+TF505: a14 # "Zum Thema Zahlensysteme gibt es im Prüfungsfragenkatalog
+TF506: a14 # nur drei Prüfungsfragen TC720-TC722" - diese hier auch,
+           # es sind also fünf.
+
+TG109: a13
+TG201: a04
+TG204: a07 # Bei TK205. Vielleicht TG205 von a15 hier her holen.
+TG207: a12
+
+TG215: a13 # Erklärung nötig.
+TG216: a13 # Und vermutlich TG219 aus a16 hier hin ziehen.
+           # Denn hier kann man erklären, dass außer der gewünschten
+           # Oberwelle auch noch weitere entstehen, die wegen ihrer
+           # hohen Frequenz abstrahlen und Unfug anrichten können.           
+TG217: a13
+
+TG229: a19
+TG230: a19
+TG231: a19
+TG232: a19
+TG234: a19
+
+TG235: a13
+TG236: a13
+TG302: a12
+TG303: a07
+TG304: a07
+TG305: a12
+TG401: a12
+TG501: a15
+TG502: a07
+TG503: a17 # ".. der Entstörung ist, eine Ferritperle auf die Emitterleitung..."
+TG505: a19
+TG506: a19 # Oder wo?
+TG507: a17 # Oder wo?
+TG509: a07
+TG510: a12
+TG511: a12
+TG512: a04
+TG513: a07
+TG515: a07
+TG516: a07
+TG517: a11
+TG518: a13
+TG519: a16
+TG520: a09
+TG521: a11
+TH103: a09
+TH106: a09
+TH109: a09
+TH110: a09
+TH118: a09
+TH119: a09
+TH153: a09
+TH210: a09
+TH232: a09 # Die Aufgabe wird im Text gestellt, ist aber nicht
+           # als Prüfungsaufgabe TH232 ausgewiesen.
+TH327: a19
+TH328: a19
+TH421: a16
+TH423: a10
+TJ826: a19
+TJ827: a11
+TJ828: a11 # Oder a16?
+TK305: a19
+TK306: a19
+TK307: a19
+TK308: a19
+TK309: a19
+TK315: a19
+TK316: a03
+TL103: a01
+TL210: a19
+TL212: a19
+

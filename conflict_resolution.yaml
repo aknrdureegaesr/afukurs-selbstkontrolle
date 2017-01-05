@@ -1,8 +1,158 @@
 ---
 
-# File started with:
-# rake list_question_conflicts
+# File template generated with:
+# rake save_question_conflicts
 
+ATB106:
+  am_Besten_nach_Lektion: "a02"
+  Lektionskandidaten: [ "a02", "a05" ]
+ATB801:
+  am_Besten_nach_Lektion: "a11"
+  Lektionskandidaten: [ "a11", "a15" ]
+ATB919:
+  am_Besten_nach_Lektion: "a02"
+  Lektionskandidaten: [ "a02", "a07" ]
+ATB923:
+  am_Besten_nach_Lektion: "a01"
+  Lektionskandidaten: [ "a01", "a02" ]
+ATB924:
+  am_Besten_nach_Lektion: "a01"
+  Lektionskandidaten: [ "a01", "a02" ]
+ATC101:
+  am_Besten_nach_Lektion: "a02"
+  Lektionskandidaten: [ "a02", "a16" ]
+ATD414:
+  am_Besten_nach_Lektion: "a11"
+  Lektionskandidaten: [ "a11", "a16" ]
+ATD415:
+  am_Besten_nach_Lektion: "a11"
+  Lektionskandidaten: [ "a11", "a16" ]
+ATD609:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a17" ]
+ATD611:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a17" ]
+ATD612:
+  am_Besten_nach_Lektion: "a04"
+  Lektionskandidaten: [ "a04", "a07" ]
+ATD613:
+  am_Besten_nach_Lektion: "a04"
+  Lektionskandidaten: [ "a04", "a07" ]
+ATD614:
+  am_Besten_nach_Lektion: "a04"
+  Lektionskandidaten: [ "a04", "a07" ]
+ATE101:
+  am_Besten_nach_Lektion: "a11"
+  Lektionskandidaten: [ "a11", "a15" ]
+ATE105:
+  am_Besten_nach_Lektion: "a12"
+  Lektionskandidaten: [ "a12", "a16" ]
+ATE217:
+  am_Besten_nach_Lektion: "a11"
+  Lektionskandidaten: [ "a11", "a15" ]
+ATF330:
+  am_Besten_nach_Lektion: "a11"
+  Lektionskandidaten: [ "a11", "a16" ]
+ATF414:
+  am_Besten_nach_Lektion: "a12"
+  Lektionskandidaten: [ "a12", "a13" ]
+ATF417:
+  am_Besten_nach_Lektion: "a12"
+  Lektionskandidaten: [ "a12", "a13" ]
+ATF418:
+  am_Besten_nach_Lektion: "a12"
+  Lektionskandidaten: [ "a12", "a13" ]
+ATF420:
+  am_Besten_nach_Lektion: "a12"
+  Lektionskandidaten: [ "a12", "a13" ]
+ATG222:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a17" ]
+ATG223:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a17" ]
+ATG224:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a17" ]
+ATG225:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a17" ]
+ATG313:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a17" ]
+ATG314:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a17" ]
+ATG315:
+  am_Besten_nach_Lektion: "a04"
+  Lektionskandidaten: [ "a04", "a07", "a17" ]
+ATG316:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a17" ]
+ATG317:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a17" ]
+ATG318:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a17" ]
+ATH221:
+  am_Besten_nach_Lektion: "a10"
+  Lektionskandidaten: [ "a10", "a16" ]
+ATJ601:
+  am_Besten_nach_Lektion: "a16"
+  Lektionskandidaten: [ "a16", "a17" ]
+ATJ708:
+  am_Besten_nach_Lektion: "a16"
+  Lektionskandidaten: [ "a16", "a17" ]
+ATJ812:
+  am_Besten_nach_Lektion: "a16"
+  Lektionskandidaten: [ "a16", "a17" ]
+ATJ813:
+  am_Besten_nach_Lektion: "a16"
+  Lektionskandidaten: [ "a16", "a17" ]
+ATJ814:
+  am_Besten_nach_Lektion: "a16"
+  Lektionskandidaten: [ "a16", "a17" ]
+ATJ824:
+  am_Besten_nach_Lektion: "a10"
+  Lektionskandidaten: [ "a10", "a16" ]
+ATK104:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a19" ]
+ATK106:
+  am_Besten_nach_Lektion: "a17"
+  Lektionskandidaten: [ "a17", "a19" ]
+ATK201:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a19" ]
+ATK202:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a19" ]
+ATK203:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a15" ]
+ATK207:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a19" ]
+ATK208:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a11" ]
+ATK211:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a19" ]
+ATK212:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a19" ]
+ATK213:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a19" ]
+ATK318:
+  am_Besten_nach_Lektion: "a07"
+  Lektionskandidaten: [ "a07", "a15" ]
+ATL102:
+  am_Besten_nach_Lektion: "a17"
+  Lektionskandidaten: [ "a17", "a19" ]
 BB103:
   am_Besten_nach_Lektion: "bv04"
   Lektionskandidaten: [ "bv04", "bv10" ]

@@ -6,3 +6,4 @@ harvest/*.html
 grep.sh
 alter_kurs
 potential_conflicts.yaml
+unmentioned_class_a_template.yaml

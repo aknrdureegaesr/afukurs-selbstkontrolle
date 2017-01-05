@@ -1,20 +1,26 @@
 # coding: utf-8
 require "yaml"
 
+# The BNetzA re-uses question numbers for the T-exam for class E and class A.
+# So, e.g., TA101 is one question for T-exam E and a DIFFERENT question for T-exam A.
+# Internally, we pre-fix the class A questions with an aditional "A".
+
+desc "Do most (not included: save_question_conflicts)."
 task :default => [:generate_qlt, :generate_cumulative_qlt, :generate_cumulative_qlt_berlin, :list_forgotten_questions]
 
 # Maps from sections (e.g.: 'bv07') to enumerables of questions (e.g.: ['VB101', 'VB102']).
 # From harvest.json, harvested from web site course material via subdirectory `harvest`:
 @section2qs_harvest = {}
-# From otherwise_forgotten.yaml, which is manually crafted:
+# From otherwise_forgotten.yaml, which is manually crafted,
+# and also from its sybling unmentioned_class_a.yaml:
 @section2qs_from_otherwise_forgotten = {}
 
 # For each question, the family of questions considered related to
-# each other.  This data historically comes from previous courses organized
-# independently (rather different split-up in sections), technically from
+# each other.  This data historically comes from previous class E courses organized
+# independently (that is, rather different split-up in sections), technically from
 # file "learn_batches.yaml".
 @q2fam = {}
-# For each question, the general theme of that question and all in the same family.
+# For each question, the general theme of that question and all others in the same family.
 @q2theme = {}
 
 # Questions that could belong to a section, as they are related.
@@ -26,14 +32,18 @@ task :default => [:generate_qlt, :generate_cumulative_qlt, :generate_cumulative_
 # From conflict_resolution.yaml, which is edited manually.
 @q2section_resolved = {}
 
-# The final answer, determined by mixing the above information.
-# May not contain all sections, answers for individual sections
+# The final answer to "which question in which section",
+# determined by mixing the above information.
+# May not contain all sections. Also, answers for individual sections
 # may be incomplete.
 @section2qs_answer = {}
-# For each section that cannot yet be generated,
-# the questions that need to be added to conflict_resolution.yaml.
-# Either you can rely on the answer of @section2qs_answer[section],
-# or @section2conflicts.key? section
+# For each section that cannot yet be generated, that is,
+# which may contain certain questions we are not sure about yet,
+# the questions that need to be added to conflict_resolution.yaml
+# to allow generation.
+# For a given section, you can either rely on
+# @section2qs_answer[section] being complete, or else you'll have
+# @section2conflicts.key? section
 @section2conflicts = {}
 
 # According to Eckart http://www.amateurfunkpruefung.de/lehrg/aufgabensuche_E.html ,
@@ -41,29 +51,30 @@ task :default => [:generate_qlt, :generate_cumulative_qlt, :generate_cumulative_
 @never_asked_questions = \
   Set.new ['TB702', 'TB804', 'TE303', 'TE306', 'TG203', 'TK303', 'TK305', 'TK309', 'TK319']
 
-# All questions known. (Presently without technics class A questions.)
-# This is for double-checking.
+# All known questions, for double-checking purposes.
 @all_qs = Set.new
 
-desc "load harvest result from harvest.json" # loads @section2qs_harvest
+desc "load harvest result from *harvest.json files"
 task :load_harvest do |t|
   YAML.parse_file('harvest.json').root.children[1].children.each_slice(2) do |section_node, questions_node|
     section = section_node.value.downcase
     @section2qs_harvest[section] = Set.new unless @section2qs_harvest.key? section
     @section2qs_harvest[section].merge questions_node.children.map { |qnode| qnode.value.upcase }
   end
-  YAML.parse_file('te_harvest.json').root.children.each do |q2sec|
-    q2sec.children.each_slice(2) do |q_node, section_node|
-      q = q_node.value.upcase
-      section = section_node.value.downcase
-      @section2qs_harvest[section] = Set.new unless @section2qs_harvest.key? section
-      @section2qs_harvest[section] << q
+  ['te_harvest.json', 'ta_harvest.json'].each do |harvest_file|
+    YAML.parse_file(harvest_file).root.children.each do |q2sec|
+      q2sec.children.each_slice(2) do |q_node, section_node|
+        q = q_node.value.upcase
+        section = section_node.value.downcase
+        @section2qs_harvest[section] = Set.new unless @section2qs_harvest.key? section
+        @section2qs_harvest[section] << q
+      end
     end
   end
 end
 
-# Take a map that maps some a values to enumerables of b values,
-# and reverse it (to a map that maps individual b values to enumerables of a values).
+# Take a map that maps some "a" values to enumerables of "b" values,
+# and reverse it (to a map that maps individual "b" values to enumerables of "a" values).
 def reverse(a2bs)
   b2as = {}
   a2bs.each do |a, bs|
@@ -75,7 +86,7 @@ def reverse(a2bs)
   b2as
 end
 
-desc "load exceptionals from otherwise_forgotten.yaml" # into @section2qs_from_otherwise_forgotten
+desc "load exceptionals from otherwise_forgotten.yaml and unmentioned_class_a.yaml" # into @section2qs_from_otherwise_forgotten
 task :load_otherwise_forgotten do |t|
   q2sections = {}
   YAML.parse_file('otherwise_forgotten.yaml').root.children.each_slice(2) do |q_node, sec_node|
@@ -83,10 +94,18 @@ task :load_otherwise_forgotten do |t|
     raise "double section #{q2sections[q]} vs #{section} from otherwise_forgotten.yaml" if q2sections.key? q
     q2sections[q] = [section]
   end
+  class_a_yaml = YAML.parse_file('unmentioned_class_a.yaml').root
+  if class_a_yaml and class_a_yaml.children
+    class_a_yaml.children.each_slice(2) do |q_node, sec_node|
+      q, section = "A#{q_node.value.upcase}", sec_node.value.downcase
+      raise "double section #{q2sections[q]} vs #{section} from otherwise_forgotten.yaml / unmentioned_class_a,yaml" if q2sections.key? q
+      q2sections[q] = [section]
+    end
+  end    
   @section2qs_from_otherwise_forgotten = reverse q2sections
 end
 
-desc "load learn-together families from learn_batches.yaml" # into q2fam
+desc "load learn-together families for class E from learn_batches.yaml"
 task :load_families do |t|
   YAML.parse_file('learn_batches.yaml').root.children.each do |family|
     theme = family.children[1 + family.children.find_index {|s| "Thema" == s.value}].value
@@ -118,8 +137,21 @@ task :section_closure => [:load_harvest, :load_otherwise_forgotten, :load_famili
       if @q2fam.key? q
         @section2qs_closure[section].merge(@q2fam[q])
       else
-        $stderr.print "WARN: In no family: #{q}\n"
+        $stderr.print "WARN: In no family: #{q}\n" unless /AT\w\d*/ =~ q
         @section2qs_closure[section] << q
+      end
+    end
+  end
+end
+
+desc "Read conflict_resolution.yaml"
+task :read_conflict_resolution do |t|
+  YAML.parse_file('conflict_resolution.yaml').root.children.each_slice(2) do |q_node, map_node|
+    map_node.children.each_slice(2) do |key_node, value_node|
+      if key_node.value == 'am_Besten_nach_Lektion' and value_node.value =~ /^\w\w?\d\d$/
+        q, section = q_node.value.upcase, value_node.value
+        raise "#{@q2section_resolved[q]} vs #{section} for #{q} in conflict_resolution.yaml" if @q2section_resolved.key? q
+        @q2section_resolved[q] = section
       end
     end
   end
@@ -127,11 +159,13 @@ end
 
 desc "Load lists of all questions"
 task :load_all_questions do |t|
-  # ['b', 'te', 'v', 'ta'].each do |subject|
   ['b', 'te', 'v'].each do |subject|
     File.open("alle_#{subject}.qlt") do |f|
       @all_qs.merge f.each_line.drop(2).map{|qline| qline.chomp}.to_a
     end
+  end
+  File.open("alle_ta.qlt") do |f|
+    @all_qs.merge f.each_line.drop(2).map{|qline| "A#{qline.chomp}"}.to_a
   end
 end
 
@@ -151,14 +185,17 @@ task :decide => [ :load_otherwise_forgotten, :load_harvest, :section_closure, :r
     # First try.
     section = @q2section_resolved[q]
     
-    sections_of = q2sections_otherwise_forgotten[q]
+    sections_otherwise_forgotten = q2sections_otherwise_forgotten[q]
+    unless sections_otherwise_forgotten.nil? or sections_otherwise_forgotten.size == 1
+      raise "ERROR: Conflicting answer #{section_otherwise_forgotten.inspect} for #{q}."
+    end
     if section.nil?
       # Second try.
-      section = sections_of.first unless sections_of.nil?
+      section = sections_otherwise_forgotten.first unless sections_otherwise_forgotten.nil?
     else
       # First and second try should not conflict in results.
-      unless sections_of.nil? or section == sections_of.first
-        raise "Conflict #{q}: #{section} in conflict_resolution.yaml vs. #{sections_of.first} in otherwise_forgotten.yaml"
+      unless sections_otherwise_forgotten.nil? or section == sections_otherwise_forgotten.first
+        raise "ERROR: Conflict #{q}: #{section} in conflict_resolution.yaml vs. #{sections_otherwise_forgotten.first} in otherwise_forgotten.yaml"
       end
     end
 
@@ -191,9 +228,9 @@ end
 
 def write_qlt(dir, section, qs, filenamestem, upto)
   subject = question_kind(section, qs)
-  fach = {t: 'Technik', b: 'Betriebskunde', v: 'Vorschriften'}[subject]
+  fach = {t: 'Technik', b: 'Betriebskunde', v: 'Vorschriften', a: 'A-Technik'}[subject]
   raise "Subject not implemented: #{subject}" if fach.nil?
-  filename = dir + "/#{{t: 'te', b: 'be', v: 'vo'}[subject]}-#{filenamestem}.qlt".upcase
+  filename = dir + "/#{{t: 'te', b: 'be', v: 'vo', a: 'ta'}[subject]}-#{filenamestem}.qlt".upcase
   $stderr.write("INFO: Writing #{filename}\n")
   if (qs.size < 3)
     $stderr.write "WARN: Cannot generate qlt file #{filename} for #{section}: Have only #{qs.size} of >= 3 questions, namely  #{qs.inspect}.\n"
@@ -204,7 +241,11 @@ def write_qlt(dir, section, qs, filenamestem, upto)
       f.write("# #{fach}fragen #{upto ? 'bis einschl. ' : ''}Lektion #{section}\r\n")
       f.write("#{{t: 'TE', b: 'BE', v: 'VE'}[subject]}=#{show}\r\n")
       f.write("Zeit=#{time}\r\n")
-      f.write(qs.sort.join("\r\n"))
+      unless subject == :a
+        f.write(qs.sort.join("\r\n"))
+      else
+        f.write(qs.map{|q| q[1..q.length]}.sort.join("\r\n"))
+      end
       f.write("\r\n")
     end
   end
@@ -297,26 +338,34 @@ task :generate_cumulative_qlt_berlin => [:decide] do |t|
                         ['bv12', 'bis-bv13'],
 
                         ['e18', 'bis-e18'],
-                        ['bv14', 'bis-bv14'] ], 'berlin'
+                        ['bv14', 'bis-bv14'],
+
+                        ['a01', 'bis-a01'],
+                        ['a02', 'bis-a02'],
+                        ['a03', 'bis-a03'],
+                        ['a04', 'bis-a04'],
+                        ['a05', 'bis-a05'],
+                        ['a06', 'bis-a06'],
+                        ['a07', 'bis-a07'],
+                        ['a08', 'bis-a08'],
+                        ['a09', 'bis-a09'],
+                        ['a10', 'bis-a10'],
+                        ['a11', 'bis-a11'],
+                        ['a12', 'bis-a12'],
+                        ['a13', 'bis-a13'],
+                        ['a14', 'bis-a14'],
+                        ['a17', 'bis-a14-n-a17'],
+                        ['a15', 'bis-a15-n-a17'],
+                        ['a18', 'bis-a18-sans-a16'],
+                        ['a19', 'bis-a19-sans-a16'],
+                        ['a16', 'bis-a19-ie-all']
+                      ], 'berlin'
                                                 
 end
 
 desc "Generate cumulative QLT files, normal section order."
 task :generate_cumulative_qlt => [:decide] do |t|
   generate_cumulative @section2qs_answer.keys.sort.map{|section| [section, "bis-#{section}"]}
-end
-
-desc "Read conflict_resolution.yaml"
-task :read_conflict_resolution do |t|
-  YAML.parse_file('conflict_resolution.yaml').root.children.each_slice(2) do |q_node, map_node|
-    map_node.children.each_slice(2) do |key_node, value_node|
-      if key_node.value == 'am_Besten_nach_Lektion' and value_node.value =~ /^\w\w?\d\d$/
-        q, section = q_node.value.upcase, value_node.value
-        raise "#{@q2section_resolved[q]} vs #{section} for #{q} in conflict_resolution.yaml" if @q2section_resolved.key? q
-        @q2section_resolved[q] = section
-      end
-    end
-  end
 end
 
 desc "Save question conflicts to prototype potential_conflicts.yaml for conflict_resolution.yaml"
@@ -331,7 +380,7 @@ task :save_question_conflicts => [:decide] do |t|
 
   $stderr.write("INFO: Generating file potential_conflicts.yaml.\n")
   File.open("potential_conflicts.yaml", 'w') do |f|
-    f.write("---\n\n# File started with:\n# rake list_question_conflicts\n\n")
+    f.write("---\n\n# File template generated with:\n# rake save_question_conflicts\n\n")
     SortedSet.new(cfxq2sections.keys).merge(q2map_node.keys).each do |q|
       f.write("#{q}:\n")
       if cfxq2sections.key? q
@@ -339,9 +388,13 @@ task :save_question_conflicts => [:decide] do |t|
           f.write("  am_Besten_nach_Lektion: \"?\"\n")
           candidates = cfxq2sections[q].sort.map{|s| "\"#{s}\""}
           f.write("  Lektionskandidaten: [ #{candidates.join(', ')} ]\n")
-          f.write("  Fragenthema: \"#{@q2theme[q].chomp}\"\n")
-          similar_qs = @q2fam[q].find_all{|vq| vq != q}.map{|vq| "\"#{vq}\""}
-          f.write("  verwandte_Fragen: [ #{similar_qs.join(', ')} ]\n")
+          unless @q2theme[q].nil?
+            f.write("  Fragenthema: \"#{@q2theme[q].chomp}\"\n")
+          end
+          unless @q2fam[q].nil?
+            similar_qs = @q2fam[q].find_all{|vq| vq != q}.map{|vq| "\"#{vq}\""}
+            f.write("  verwandte_Fragen: [ #{similar_qs.join(', ')} ]\n")
+          end
         else
           raise "What's that about one conflict section for #{q}?"
         end
@@ -378,9 +431,25 @@ task :list_forgotten_questions => [:decide, :load_all_questions, :load_otherwise
     forgotten_qs.each_slice(10) {|slice| $stderr.write("#{slice.join(', ')}\n") }
     File.open("grep.sh", "w", 0755) do |f|
       forgotten_qs.each do |q|
-        f.write("grep -li '#{q}' harvest/*.html && echo '#{q}\n'\n")
+        if q[0] == 'A'
+          f.write("grep -li '#{q[1..q.length]}' harvest/a*.html && echo '#{q}\n'\n")
+        else
+          f.write("grep -li '#{q}' harvest/[bt]*.html && echo '#{q}\n'\n")
+        end
       end
-      $stderr.write("WARN: See also grep.sh.\n")
+    end
+    if forgotten_qs.any? { |q| q[0] == 'A' }
+      File.open("unmentioned_class_a_template.yaml", 'w') do |f|
+        f.write("---\n")
+        forgotten_qs.each do |q|
+          if q[0] == 'A'
+            f.write("# #{q[1..q.length]}: \n")
+          end
+        end
+      end
+      $stderr.write("WARN: See also grep.sh and unmentioned_class_a_template.yaml.\n")
+    else
+      $stderr.write("WARN: See also grep.sh .\n")
     end
   else
     $stderr.write("INFO: Deal with #{qs_remembered.size} of #{all_qs.size} questions.\n")
