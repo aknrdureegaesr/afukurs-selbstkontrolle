@@ -235,13 +235,10 @@ def write_qlt(dir, section, qs, filenamestem, upto)
   if (qs.size < 3)
     $stderr.write "WARN: Cannot generate qlt file #{filename} for #{section}: Have only #{qs.size} of >= 3 questions, namely  #{qs.inspect}.\n"
   else
-    unless 'a' == subject
-      show = (34 < qs.size ? 34 : qs.size)
-      time = (show / 34.0 * 60 + 0.8).to_i
-    else
-      show = (51 < qs.size ? 51 : qs.size)
-      time = (show / 51.0 * 90 + 0.8).to_i
-    end
+    max_show = :a == subject ? 51 : 34
+    show = (max_show < qs.size ? max_show : qs.size)
+    max_time = :a == subject ? 90.0 : 60.0
+    time = (show * max_time / max_show + 0.8).to_i
     File.open("#{filename}", 'w') do |f|
       f.write("# #{fach}fragen #{upto ? 'bis einschl. ' : ''}Lektion #{section}\r\n")
       f.write("#{{t: 'TE', b: 'BE', v: 'VE', a: 'TA'}[subject]}=#{show}\r\n")
