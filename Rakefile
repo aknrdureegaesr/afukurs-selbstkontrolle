@@ -456,3 +456,25 @@ task :list_forgotten_questions => [:decide, :load_all_questions, :load_otherwise
   end
 end
 
+desc "Reverse unmentioned_class_a.yaml and publish on stdout."
+task :reverse_unmentioned_class_a do |t|
+  class_a_yaml = YAML.parse_file('unmentioned_class_a.yaml').root
+  if class_a_yaml and class_a_yaml.children
+    q2sections = {}
+    count = 0
+    class_a_yaml.children.each_slice(2) do |q_node, sec_node|
+      q, section = q_node.value.upcase, sec_node.value.downcase
+      raise "double section #{q2sections[q]} vs #{section} from otherwise_forgotten.yaml / unmentioned_class_a,yaml" if q2sections.key? q
+      q2sections[q] = [section]
+      count += 1
+    end
+    $stdout.write "# #{count} questions.\n"
+    sections2qs = reverse(q2sections)
+    sections2qs.keys.sort.each do |section|
+      qs = sections2qs[section]
+      $stdout.write "#{section}: [#{qs.to_a.sort.join(", ")}]\n"
+    end
+  else
+    raise "ERROR: No material found in unmentioned_class_a.yaml."
+  end    
+end

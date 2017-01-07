@@ -98,13 +98,6 @@
 # * Man kühlt in einer PA normalerweise die Röhre oder den Transistor,
 #   aber nicht die Spule.
 # 
-# * Nach der Logik müssten Antennentuner verherrend schlechte
-#   Wirkungsgrade haben, wenn sie Spulen enthalten und auf niedrigem
-#   Impedanzniveau laufen, z.B. 50 Ω.
-# 
-# * Eine übliche Spule hat normalerweise eine deutlich höhere Eigengüte,
-#   verglichen mit der Betriebsgüte innerhalb der Schaltung.
-#
 # * Das höhere Impedanzniveau von Röhren-PAs bringt niedrigere Ströme
 #   mit sich, aber gleichzeitig erfordert es entsprechend größere
 #   Induktivitäten. Der pro Volt anliegender HF-Spannung in der Spule
