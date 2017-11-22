@@ -212,6 +212,11 @@ BE304:
 BE308:
   am_Besten_nach_Lektion: "bv12"
   weil: "was soll das in der Techniklektion e16?"
+BE310:
+  am_Besten_nach_Lektion: "bv12"
+  Lektionskandidaten: [ "bv11", "bv12" ]
+  Fragenthema: "Simplex / duplex."
+  verwandte_Fragen: [  ]
 BE403:
   am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv08", "bv11" ]
@@ -255,11 +260,26 @@ VB120:
   Lektionskandidaten: [ "bv07", "bv08" ]
   Fragenthema: "CEPT-Empfehlung T/R&nbsp;61-01 für Kurzzeitbetrieb."
   verwandte_Fragen: [ "VB103", "VB105", "VB111", "VB113", "VB119" ]
+VC105:
+  am_Besten_nach_Lektion: "bv01"
+  Lektionskandidaten: [ "bv01", "bv05" ]
+  Fragenthema: "Grundsätzliches aus dem AfuG"
+  verwandte_Fragen: [ "VC101", "VC102", "VC103", "VC104", "VC106", "VC111", "VC112", "VC114", "VC119", "VK104" ]
+VC111:
+  am_Besten_nach_Lektion: "bv01"
+  Lektionskandidaten: [ "bv01", "bv05" ]
+  Fragenthema: "Grundsätzliches aus dem AfuG"
+  verwandte_Fragen: [ "VC101", "VC102", "VC103", "VC104", "VC105", "VC106", "VC112", "VC114", "VC119", "VK104" ]
 VC112:
   am_Besten_nach_Lektion: "bv01"
   Lektionskandidaten: [ "bv01", "bv05" ]
   Fragenthema: "Grundsätzliches aus dem AfuG"
   verwandte_Fragen: [ "VC101", "VC102", "VC103", "VC104", "VC105", "VC106", "VC111", "VC114", "VC119", "VK104" ]
+VC114:
+  am_Besten_nach_Lektion: "bv01"
+  Lektionskandidaten: [ "bv01", "bv05" ]
+  Fragenthema: "Grundsätzliches aus dem AfuG"
+  verwandte_Fragen: [ "VC101", "VC102", "VC103", "VC104", "VC105", "VC106", "VC111", "VC112", "VC119", "VK104" ]
 VC121:
   am_Besten_nach_Lektion: "bv08"
   Lektionskandidaten: [ "bv05", "bv08" ]

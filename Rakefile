@@ -61,7 +61,7 @@ task :load_harvest do |t|
     @section2qs_harvest[section] = Set.new unless @section2qs_harvest.key? section
     @section2qs_harvest[section].merge questions_node.children.map { |qnode| qnode.value.upcase }
   end
-  ['te_harvest.json', 'ta_harvest.json'].each do |harvest_file|
+  ['te_harvest.json', 'ta_harvest.json', 'bv_harvest.json'].each do |harvest_file|
     YAML.parse_file(harvest_file).root.children.each do |q2sec|
       q2sec.children.each_slice(2) do |q_node, section_node|
         q = q_node.value.upcase
@@ -454,7 +454,7 @@ task :list_forgotten_questions => [:decide, :load_all_questions, :load_otherwise
       $stderr.write("WARN: See also grep.sh .\n")
     end
   else
-    $stderr.write("INFO: Deal with #{qs_remembered.size} of #{all_qs.size} questions.\n")
+    $stderr.write("INFO: Deal with #{qs_remembered.size} of #{@all_qs.size} questions.\n")
   end
 end
 

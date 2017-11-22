@@ -2,9 +2,8 @@
 require 'net/http'
 require 'nokogiri'
 
-# These rake tasks access the stuff at the two sites
+# These rake tasks access the stuff at
 # https://www.darc.de/der-club/referate/ajw/darc-online-lehrgang/
-# http://www.amateurfunkpruefung.de/
 # to dig out the information which session of the course
 # covers which BNetzA-question.
 
@@ -15,11 +14,11 @@ require 'nokogiri'
 # Without SSL:
 @oldclient = Net::HTTP.new('www.darc.de')
 
-# Eckart's site:
-@e_client = Net::HTTP.new('www.amateurfunkpruefung.de')
+# # Eckart's site:
+# @e_client = Net::HTTP.new('www.amateurfunkpruefung.de')
 
 desc "do it all"
-task :default => [ :harvest_eckarts_a_links, :harvest_eckarts_te_links ] do |t|
+task :default => [ :harvest_eckarts_links ] do |t|
   harvest = File.open("harvest.json", "w")
   harvest.print "{\n  \"harvest_from_website\": {\n"
   first = true
@@ -74,7 +73,6 @@ end
 @section2questions = {}
 
 def make_task(section)
-
   desc "Fetch questions for section #{section}"
   new_task = task section.to_sym => [:grab_section_links] do |t|
     section = t.to_s
@@ -128,6 +126,8 @@ def make_task(section)
             found_q = true
           end
         elsif a.children.size == 0
+          # ignore
+        elsif /<h1>[^<]+<\/h1>/ =~ a.to_html
           # ignore
         else
           raise "Do not understand #{a.to_html} aka #{a.inspect}
@@ -290,42 +290,95 @@ task :pimp_te_toc => [:pull_link_page] do |t|
   end
 end
 
-desc "Harvest the links from Klasse A https://www.darc.de/der-club/referate/ajw/darc-online-lehrgang/"
-task :harvest_eckarts_a_links => [ :pull_link_page ] do |t|
-  q2sec = {}
+desc "Harvest the links questions to sections from https://www.darc.de/der-club/referate/ajw/darc-online-lehrgang/"
+task :harvest_eckarts_links => [ :pull_link_page ] do |t|
+  qta2sec = {}
+  qte2sec = {}
+  qbv2sec = {}
   Nokogiri::HTML(@link_page).xpath('//a[@href]').each do |a|
-    if a.inner_text =~ /^t\w\d\d\d$/i
+    if a.inner_text =~ /^([bvt])\w\d\d\d$/i
+      category_letter = $1
       l = a['href']
       if l =~ /^https:\/\/www\.darc\.de\/der\-club\/referate\/ajw\/lehrgang\-ta\/(a\d\d)\/.+$/
-        q2sec["A#{a.inner_text.upcase}"] = $1
-      else
-        $stderr.write "WARN: Ignoring #{a.to_html}\n" unless l =~ /lehrgang-te/
-      end
-    end
-  end
-  File.open("ta_harvest.json", 'w') do |f|
-    f.write "[\n"
-    f.write q2sec.keys.sort.map{|q| "  \"#{q}\": \"#{q2sec[q]}\""}.join(",\n")
-    f.write "\n]\n"
-  end
-end
-
-desc "Harvest the links from http://www.amateurfunkpruefung.de/lehrg/aufgabensuche_E.html"
-task :harvest_eckarts_te_links => [] do |t|
-  q2sec = {}
-  grab_as_html('/lehrg/aufgabensuche_E.html', @e_client).xpath('//a[@href]').each do |a|
-    if a.inner_text =~ /^\w\w\d\d\d$/
-      l = a['href']
-      if l =~ /^https:\/\/www\.darc\.de\/der\-club\/referate\/ajw\/lehrgang\-te\/(e\d\d)\/.+$/
-        q2sec[a.inner_text] = $1
+        if category_letter == "T"
+          qta2sec["A#{a.inner_text.upcase}"] = $1
+        else
+          $stderr.write "WARN: Ignoring #{a.to_html}\n"
+        end
+      elsif l =~ /^https:\/\/www\.darc\.de\/der\-club\/referate\/ajw\/lehrgang\-te\/(e\d\d)\/.+$/
+        if category_letter == "T"
+          qte2sec[a.inner_text] = $1
+        else
+          $stderr.write "WARN: Ignoring #{a.to_html}\n"
+        end
+      # https://www.darc.de/der-club/referate/ajw/lehrgang-bv/bv06/#BD207
+      elsif l =~ /^https:\/\/www\.darc\.de\/der\-club\/referate\/ajw\/lehrgang\-bv\/(bv\d\d)\/.+$/
+        if category_letter == "B" or category_letter == "V"
+          qbv2sec[a.inner_text] = $1
+        else
+          $stderr.write "WARN: Ignoring #{a.to_html}\n"
+        end
       else
         $stderr.write "WARN: Ignoring #{a.to_html}\n"
       end
     end
   end
-  File.open("te_harvest.json", 'w') do |f|
-    f.write "[\n"
-    f.write q2sec.keys.sort.map{|q| "  \"#{q}\": \"#{q2sec[q]}\""}.join(",\n")
-    f.write "\n]\n"
+  [["ta_harvest.json", qta2sec], ["te_harvest.json", qte2sec], ["bv_harvest.json", qbv2sec]].each do |filename, q2sec|
+    File.open(filename, 'w') do |f|
+      f.write "[\n"
+      f.write q2sec.keys.sort.map{|q| "  \"#{q}\": \"#{q2sec[q]}\""}.join(",\n")
+      f.write "\n]\n"
+    end
   end
 end
+
+# DARC site is better # desc "Harvest the links from http://www.amateurfunkpruefung.de/lehrg/aufgabensuche_E.html"
+# DARC site is better # task :harvest_eckarts_te_links => [] do |t|
+# DARC site is better #   q2sec = {}
+# DARC site is better #   grab_as_html('/lehrg/aufgabensuche_E.html', @e_client).xpath('//a[@href]').each do |a|
+# DARC site is better #     if a.inner_text =~ /^\w\w\d\d\d$/
+# DARC site is better #       l = a['href']
+# DARC site is better #       if l =~ /^https:\/\/www\.darc\.de\/der\-club\/referate\/ajw\/lehrgang\-te\/(e\d\d)\/.+$/
+# DARC site is better #         q2sec[a.inner_text] = $1
+# DARC site is better #       else
+# DARC site is better #         $stderr.write "WARN: Ignoring #{a.to_html}\n"
+# DARC site is better #       end
+# DARC site is better #     end
+# DARC site is better #   end
+# DARC site is better #   File.open("te_harvest.json", 'w') do |f|
+# DARC site is better #     f.write "[\n"
+# DARC site is better #     f.write q2sec.keys.sort.map{|q| "  \"#{q}\": \"#{q2sec[q]}\""}.join(",\n")
+# DARC site is better #     f.write "\n]\n"
+# DARC site is better #   end
+# DARC site is better # end
+
+# DARC site is better # desc "Harvest the links from http://amateurfunkpruefung.de/lehrg/aufgabensuche_A.html"
+# DARC site is better # task :harvest_eckarts_a_links_his_site => [] do |t|
+# DARC site is better #   q2sec = {}
+# DARC site is better #   grab_as_html('/lehrg/aufgabensuche_A.html', @e_client).xpath('//a[@href]').each do |a|
+# DARC site is better #     if a.inner_text =~ /^T\w\d\d\d$/
+# DARC site is better #       l = a['href']
+# DARC site is better #       if l =~ /^https:\/\/www\.darc\.de\/der\-club\/referate\/ajw\/lehrgang\-te\/(e\d\d)\/.+$/
+# DARC site is better #         q2sec["A#{a.inner_text.upcase}"] = $1
+# DARC site is better #       elsif l =~ /^https:\/\/www.amateurfunkpruefung.de\/lehrg\/(a\d\d)\/.+$/
+# DARC site is better #         q2sec["A#{a.inner_text.upcase}"] = $1
+# DARC site is better #       else
+# DARC site is better #         $stderr.write "WARN: Ignoring #{a.to_html}\n"
+# DARC site is better #       end
+# DARC site is better #     end
+# DARC site is better #   end
+# DARC site is better #   File.open("ta_harvest2.json", 'w') do |f|
+# DARC site is better #     f.write "[\n"
+# DARC site is better #     f.write q2sec.keys.sort.map{|q| "  \"#{q}\": \"#{q2sec[q]}\""}.join(",\n")
+# DARC site is better #     f.write "\n]\n"
+# DARC site is better #   end
+# DARC site is better # end
+# DARC site is better # 
+# DARC site is better # desc "Check ta_harvest.json and ta_harvest2.json are identical"
+# DARC site is better # task :eckarts_and_darc_links_coincide => [:harvest_eckarts_a_links_his_site, :harvest_eckarts_a_links] do |t|
+# DARC site is better #   darc_content = IO.read("ta_harvest.json")
+# DARC site is better #   eckart_site_content = IO.read("ta_harvest2.json")
+# DARC site is better #   unless darc_content == eckart_site_content
+# DARC site is better #     raise "ERROR: ta_harvest.json from DARC and ta_harvest2.json from Eckart's site differ, please investigate."
+# DARC site is better #   end
+# DARC site is better # end

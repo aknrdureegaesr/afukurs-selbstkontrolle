@@ -59,27 +59,18 @@ und AfuP bereits installiert sind.
 
 ## Woher die .qlt-Dateien nehmen?
 
-Dieses Repo dient erst einmal der Unterstützung des derzeitigen
-[Berliner Amateurfunk-Kurses](https://www.chaoswelle.de/Kurs) (Stand:
-Oktober 2016).
+Dieses Repo diente ursprünglich der Unterstützung der 2016er Ausgabe
+des [Berliner Amateurfunk-Kurses](https://www.chaoswelle.de/Kurs).
 
-Ich (DJ3EI) biete an, kursbegleitend entsprechende Dateien zur
-Verfügung zu stellen. Ich habe aus mehreren früheren Kursen Skripte,
-die `.qlt`-Generierung relativ bequem machen.
-
-Ich habe weiter Listen zusammengehöriger Fragen. (Denn was sinnvoll
-zusammen gelernt wird, steht im Fragenkatalog leider nicht unbedingt
-zusammen.)  Allerdings waren meine Kurse vom Stoffverlauf chaotischer
-"organisiert". Eckarts Gliederung war mir schnurts, sondern ich habe
-zum Beispiel gerne mit dem (appetitanregenden) Thema Wellenausbreitung
-angefangen. Also können wir meine (durchaus vorhandenen) `.qlt` -
-Dateien aus dem letzten Kurs nicht einfach nehmen.
+Es lässt sich aber auch für andere Kurse nutzen, die nach Eckarts
+Büchern vorgehen.
 
 ## QLT-Dateien
 
-*Die hier gelieferten QLT-Dateien sind noch nicht komplett.* Was es
-schon gibt, liegt im `data` Verzeichnis.  Die Software, um diese
-Dateien zu erzeugen, steckt komplett in zwei `Rakefile`.
+finden sich in den Verzeichnissen [data](data) und [berlin](berlin).
+
+Die Software, um diese Dateien zu erzeugen, steckt komplett in zwei
+`Rakefile`.
 
 Alles in diesem Repo steht unter der Apache-Lizens, siehe LICENSE.txt.
 
