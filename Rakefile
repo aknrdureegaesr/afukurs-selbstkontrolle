@@ -314,63 +314,79 @@ task :generate_cumulative_qlt_berlin => [:decide] do |t|
   generate_cumulative [ ['bv01', 'bis-bv01'],
                         ['e01', 'bis-e01'],
                         ['bv02', 'bis-bv02'],
-                        ['e02', 'bis-e02'],
 
+                        ['e02', 'bis-e02'],
                         ['e03', 'bis-e03'],
-                        ['e04', 'bis-e04'],
                         ['bv03', 'bis-bv03'],
 
-                        ['e05', 'bis-e05'],
-                        ['bv05', 'bis-bv05'],
+                        ['e04', 'bis-e04'],
+                        ['bv05', 'bis-bv03-n-bv05'],
 
-                        ['bv06', 'bis-bv06'],
-                        ['bv13', 'bis-bv06-n-bv13'],
+                        ['e05', 'bis-e05'],
+                        ['bv06', 'bis-bv03-n-bv05-bis-bv06'],
 
                         ['e06', 'bis-e06'],
-                        ['e07', 'bis-e07'],
-                        ['e08', 'bis-e08'],
-                        ['bv07', 'bis-bv07-n-bv13'],
+                        ['bv13', 'bis-bv03-n-bv05-n-bv06-n-bv13'],
+                        ['e17', 'bis-e06-n-e17'],
 
-                        ['e09', 'bis-e09'],
-                        ['e10', 'bis-e10'],
-                        ['bv08', 'bis-bv08-n-bv13'],
+                        ['e07', 'bis-e07-n-e17'],
+                        ['bv07', 'bis-bv03-n-bv05-bis-bv07-n-bv13'],
+
+                        ['e08', 'bis-e08-n-e17'],
+                        ['e09', 'bis-e09-n-e17'],
                         
-                        ['e11', 'bis-e11'],
-                        ['bv09', 'bis-bv09-n-bv13'],
+                        ['e10', 'bis-e10-n-e17'],
+                        ['bv08', 'bis-bv03-n-bv05-bis-bv08-n-bv13'],
 
-                        ['e12', 'bis-e12'],
-                        ['e13', 'bis-e13'],
-                        ['bv10', 'bis-bv10-n-bv13'],
+                        ['e11', 'bis-e11-n-e17'],
 
-                        ['e14', 'bis-e14'],
-                        ['e15', 'bis-e15'],
-                        ['bv11', 'bis-bv11-n-bv13'],
+                        ['e12', 'bis-e12-n-e17'],
+                        ['e13', 'bis-e13-n-e17'],
+                        ['e14', 'bis-e14-n-e17'],
 
-                        ['e16', 'bis-e16'],
-                        ['e17', 'bis-e17'],
-                        ['bv12', 'bis-bv13'],
+                        ['bv10', 'bis-bv03-n-bv05-bis-bv08-n-bv10-n-bv13'],
+                        ['bv11', 'bis-bv03-n-bv05-bis-bv08-n-bv10-n-bv11-n-bv13'],
 
-                        ['e18', 'bis-e18'],
-                        ['bv14', 'bis-bv14'],
+                        ['e15', 'bis-e15-n-e17'],
+                        ['e18', 'bis-e15-n-e17-n-e18'],
+                        ['bv14', 'bis-bv03-n-bv05-bis-bv08-n-bv10-n-bv11-n-bv13-n-bv14'],
+
+                        ['e16', 'bis-e18'],
+                        ['bv12', 'bis-bv03-n-bv05-bis-bv08-n-bv10-n-bv11-bis-bv14'],
+                        ['bv09', 'bis-bv03-n-bv05-bis-bv14'],
+
+                        ['bv04', 'bis-bv14'],
 
                         ['a01', 'bis-a01'],
                         ['a02', 'bis-a02'],
+
                         ['a03', 'bis-a03'],
                         ['a04', 'bis-a04'],
+
                         ['a05', 'bis-a05'],
                         ['a06', 'bis-a06'],
+
                         ['a07', 'bis-a07'],
+
                         ['a08', 'bis-a08'],
+
                         ['a09', 'bis-a09'],
                         ['a10', 'bis-a10'],
+
                         ['a11', 'bis-a11'],
+
                         ['a12', 'bis-a12'],
+
                         ['a13', 'bis-a13'],
-                        ['a14', 'bis-a14'],
-                        ['a17', 'bis-a14-n-a17'],
+
+                        ['a17', 'bis-a13-n-a17'],
+
+                        ['a14', 'bis-a14-n-a17'],
                         ['a15', 'bis-a15-n-a17'],
-                        ['a18', 'bis-a18-sans-a16'],
-                        ['a19', 'bis-a19-sans-a16'],
+
+                        ['a18', 'bis-a15-n-a17-bis-a18'],
+                        ['a19', 'bis-a15-n-a17-bis-a19'],
+
                         ['a16', 'bis-a19-ie-all']
                       ], 'berlin'
                                                 
