@@ -47,9 +47,20 @@ task :default => [:generate_qlt, :generate_cumulative_qlt, :generate_cumulative_
 @section2conflicts = {}
 
 # According to Eckart http://www.amateurfunkpruefung.de/lehrg/aufgabensuche_E.html ,
+# and, according to (yea! to succint URIs)
+# https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Frequenzen/Amateurfunk/Fragenkatalog/Liste_der_nicht_mehr_relavanten_Fragen.pdf?__blob=publicationFile&v=1
 # the following questions are never ever asked and hence highly non-pertinent:
 @never_asked_questions = \
-  Set.new ['TB702', 'TB804', 'TE303', 'TE306', 'TG203', 'TK303', 'TK305', 'TK309', 'TK319']
+Set.new [
+  # questions never asked according to Eckart
+  'TB702', 'TB804', 'TE303', 'TE306', 'TG203', 'TK303', 'TK305', 'TK309', 'TK319',
+  # questions never asked according to BNetzA:
+  'ATE112', 'ATH117', 'ATH123', 'ATH146', 'ATH147', 'ATI101', 'ATL217', 'ATL218',
+  'TC503', 'TE104', 'TI101', 'TL214',
+  'BC105', 'BC216', 'BE308', 'BF109',
+  'VE102', 'VE131', 'VE136', 'VE148', 'VE153', 'VG103', 'VG104', 'VG106', 'VG107', 'VG113',
+  'VI111', 'VI113', 'VI114', 'VI115', 'VI122', 'VI123', 'VK104'
+]
 
 # All known questions, for double-checking purposes.
 @all_qs = Set.new
