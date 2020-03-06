@@ -1,0 +1,41 @@
+---
+
+## Die folgenden Prüfungsfragen
+## werden im L - Material von leeren Lektionen
+## umgeleitet auf andere (hier angegebene) Lektionen.
+
+## Technik Klasse A ist hier noch nicht eingepflegt.
+
+-
+  lesson:    1.7
+  questions: "TB701-TB702"
+
+-
+  lesson:    1.5
+  questions: "TB801-TB806"
+
+-
+  lesson:    1.5
+  questions: "TD501-TD504"
+
+-
+  lesson:    1.5
+  questions: "BB401-BB407"
+
+-
+  lesson:    2.4
+  questions: "VD201-VD223"
+
+-
+  lesson:    2.3
+  questions: "VE101-VE152"
+
+########## Found out the hard way:
+
+-
+  lesson:    2.3
+  questions: "BC201-BC220"
+
+-
+  lesson:    1.1.1.2
+  questions: "TA101-TA104"

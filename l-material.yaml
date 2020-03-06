@@ -1,0 +1,1124 @@
+
+-
+  kind:      "Technik A"
+  lesson:    "1.1.1"
+  questions: "TA101 - TA125"
+  what:      "Rechnen für Funkamateure 1"
+  whodoneit: "DL4EAX-DD3AH"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.1.2"
+  questions: "TA101 - TA125"
+  what:      "Rechnen für Funkamateure 2"
+  whodoneit: "DL4EAX-DD3AH"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.1.3"
+  questions: "TA101 - TA125"
+  what:      "Rechnen für Funkamateure 3"
+  whodoneit: "DL4EAX-DD3AH"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.1.4"
+  questions: "TA101 - TA125"
+  what:      "Rechnen für Funkamateure 4"
+  whodoneit: "DL4EAX-DD3AH"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.1.5"
+  questions: "TA101 - TA125"
+  what:      "Rechnen für Funkamateure 5"
+  whodoneit: "DL4EAX-DD3AH"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.2.1"
+  questions: "TB101 - TB112"
+  what:      "Leiter, Halbleiter und Isolator (und TC501 - TC505 aus 1.3.5)"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.2.2"
+  questions: "TB201 - TB210"
+  what:      "Strom- und Spannungsquellen"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.2.3"
+  questions: "TB301 - TB306"
+  what:      "Elektrisches Feld"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.2.4"
+  questions: "TB401 - TB408"
+  what:      "Magnetisches Feld"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.2.5"
+  questions: "TB501 - TB512"
+  what:      "Elektromagnetisches Feld"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.2.6"
+  questions: "TB601 - TB612"
+  what:      "Sinusförmige Signale"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.2.7"
+  questions: "TB701 - TB708"
+  what:      "Nichtsinusförmige Signale"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.2.8"
+  questions: "TB801 - TB806"
+  what:      "Modulierte Signale (Wird in Kapitel 1.5 behandelt)"
+  whodoneit: "-"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.2.9"
+  questions: "TB901 - TB924"
+  what:      "Leistung und Energie"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.3.1"
+  questions: "TC101 - TC115"
+  what:      "Widerstand"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.3.2"
+  questions: "TC201 - TC209"
+  what:      "Kondensator"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.3.3"
+  questions: "TC301 - TC319"
+  what:      "Spule"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.3.4"
+  questions: "TC401 - TC407"
+  what:      "Übertrager und Transformatoren"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.3.5"
+  questions: "TC506 - TC528"
+  what:      "Diode (Fragen TC501 - TC505 sind in Kapitel 1.2.1)"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.3.6"
+  questions: "TC601 - TC617"
+  what:      "Transistor (Fragen TC618 - TC626 in Kapitel 1.4.4)"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.3.7"
+  questions: "TC701 - TC722"
+  what:      "Einfache digitale und analoge Schaltkreise und sonstige Bauelemente"
+  whodoneit: "DL4EAX"
+  duration:  "60 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.4.1"
+  questions: "TD101 - TD145"
+  what:      "Reihen- und Parallelschaltung von R, L und C"
+  whodoneit: "DL3YHM"
+  duration:  "60 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.4.2"
+  questions: "TD201 - TD234"
+  what:      "Schwingkreise und Filter"
+  whodoneit: "DL3YHM"
+  duration:  "60 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.4.3"
+  questions: "TD301 - TD322"
+  what:      "Stromversorgung"
+  whodoneit: "DL3YHM"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.4.4"
+  questions: "TD401 - TD432"
+  what:      "Verstärker und Transistorgrundschaltungen (und TC618 - TC626 aus 1.3.6)"
+  whodoneit: "DL3YHM"
+  duration:  "60 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.4.5"
+  questions: "TD501 - TD515"
+  what:      "Modulator und Demodulator (Wird in Kapitel 1.5 behandelt)"
+  whodoneit: "-"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.4.6"
+  questions: "TD601 - TD615"
+  what:      "Oszillator"
+  whodoneit: "DL3YHM"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.4.7"
+  questions: "TD701 - TD707"
+  what:      "Phasenregelkreise"
+  whodoneit: "DL3YHM"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.5.0"
+  questions: " "
+  what:      "Modulation"
+  whodoneit: "DL3YHM-DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.5.1.1"
+  questions: "TE101 - TE113"
+  what:      "Amplitudenmodulation (Beinhaltet Kapitel 1.2.8 und 1.4.5)"
+  whodoneit: "DL3YHM-DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.5.1.2"
+  questions: "TE101 - TE113"
+  what:      "Einseitenbandmodulation (Beinhaltet Kapitel 1.2.8 und 1.4.5)"
+  whodoneit: "DL3YHM-DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.5.2.1"
+  questions: "TE201 - TE217"
+  what:      "Frequenzmodulation (Beinhaltet Kapitel 1.2.8 und 1.4.5)"
+  whodoneit: "DL3YHM-DL4EAX"
+  duration:  "60 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.5.2.2"
+  questions: "TE201 - TE217"
+  what:      "Phasenmodulation (Beinhaltet Kapitel 1.2.8 und 1.4.5)"
+  whodoneit: "DL3YHM-DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.5.3"
+  questions: "TE301 - TE330"
+  what:      "Text-, Daten- und Bildübertragung"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.6.1"
+  questions: "Siehe Datei"
+  what:      "Einfach- und Doppelsuperhet-Empfänger"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.6.2"
+  questions: "Siehe Datei"
+  what:      "Blockschaltbilder Empfänger"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.6.3"
+  questions: "Siehe Datei"
+  what:      "Betrieb und Funktionsweise einzelner Stufen"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.6.4"
+  questions: "Siehe Datei"
+  what:      "Empfängermerkmale"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.6.5"
+  questions: "TF501 - TF504"
+  what:      "Digitale Signalverarbeitung"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.7.1"
+  questions: "Siehe Datei"
+  what:      "Blockschaltbilder Funksender"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.7.2"
+  questions: "TG201 - TG240"
+  what:      "Betrieb und Funktionsweise einzelner Stufen (Wurde auf verschiedene Kapitel verteilt)"
+  whodoneit: "-"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.7.3"
+  questions: " "
+  what:      "Betrieb und Funktionsweise von HF-Leistungsverstärkern"
+  whodoneit: "DL4EAX"
+  duration:  " "
+
+-
+  kind:      "Technik A"
+  lesson:    "1.7.4"
+  questions: "TG403 - TG405"
+  what:      "Betrieb und Funktionsweise von HF-Transceivern"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.7.5"
+  questions: "Verschiedene"
+  what:      "Unerwünschte Aussendungen (Aus mehren Kapiteln zusammengefasst)"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.8.1"
+  questions: "TH101 - TH160"
+  what:      "Antennen"
+  whodoneit: "DL8BFV"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.8.2"
+  questions: "TH201 - TH232"
+  what:      "Antennenmerkmale"
+  whodoneit: "DL8BFV"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.8.3"
+  questions: "TH301 - TH331"
+  what:      "Übertragungsleitungen"
+  whodoneit: "DL8BFV"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.8.4"
+  questions: "TH401 - TH423"
+  what:      "Anpassung, Transformation und Symmetrierung"
+  whodoneit: "DL8BFV"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.9.1"
+  questions: "TI102 - TI115"
+  what:      "Ionosphäre"
+  whodoneit: "DM4EAX"
+  duration:  "In Arbeit"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.9.2"
+  questions: "TI201 - TI239"
+  what:      "Kurzwellenausbreitung"
+  whodoneit: "DM4EAX"
+  duration:  "In Arbeit"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.9.3"
+  questions: "TI301 - TI317"
+  what:      "Wellenausbreitung oberhalb 30 MHz"
+  whodoneit: "DM4EAX"
+  duration:  "In Arbeit"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.10.1"
+  questions: "TJ101 - TJ117"
+  what:      "Strom- und Spannungsmesser"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.10.2"
+  questions: "TJ201 - TJ211"
+  what:      "Dipmeter"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.10.3"
+  questions: "TJ301 - TJ305"
+  what:      "Oszilloskop"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.10.4"
+  questions: "TJ401 - TJ406"
+  what:      "Stehwellenmessgerät"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.10.5"
+  questions: "TJ501 - TJ510"
+  what:      "Frequenzzähler"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.10.6"
+  questions: "TJ601 - TJ606"
+  what:      "Absorptionsfrequenzmesser"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.10.7"
+  questions: "TJ701 - TJ708"
+  what:      "Sonstige Messgeräte und Messmittel"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.10.8"
+  questions: "TJ801 - TJ836"
+  what:      "Durchführung von Messungen"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.11.1"
+  questions: "Siehe Datei"
+  what:      "Unterschied zwischen Störungen und störender Beeinflussung"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.11.2"
+  questions: "Siehe Datei"
+  what:      "Ursachen und Abhilfe für Störungen"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.11.3"
+  questions: "Siehe Datei"
+  what:      "Ursachen und Abhilfe für störende Beeinflussungen"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.12.1"
+  questions: "TL101 - TL103"
+  what:      "Störfestigkeit (Wird in Kapitel 1.2.9 und 1.11 behandelt)"
+  whodoneit: "-"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.12.2"
+  questions: "TL201 - TL216"
+  what:      "Schutz von Personen"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik A"
+  lesson:    "1.12.3"
+  questions: "TL301 - TL307"
+  what:      "Sicherheit"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+
+-
+  kind:      "Technik E"
+  lesson:    "1.1.1.1"
+  questions: "-"
+  what:      "Rechnen für Funkamateure 1"
+  whodoneit: "DL4EAX-DD3AH"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.1.1.2"
+  questions: "-"
+  what:      "Rechnen für Funkamateure 2"
+  whodoneit: "DL4EAX-DD3AH"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.1.1.3"
+  questions: "-"
+  what:      "Rechnen für Funkamateure 3"
+  whodoneit: "DL4EAX-DD3AH"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.1.1.4"
+  questions: "-"
+  what:      "Rechnen für Funkamateure 4"
+  whodoneit: "DL4EAX-DD3AH"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.1.1.5"
+  questions: "-"
+  what:      "Rechnen für Funkamateure 5"
+  whodoneit: "DL4EAX-DD3AH"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.1.2"
+  questions: "TA201-TA208"
+  what:      "Größen und Einheiten"
+  whodoneit: "DM4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.2.1"
+  questions: "TB101-TB105"
+  what:      "Leiter, Halbleiter und Isolator"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.2.2"
+  questions: "TB201-TB205"
+  what:      "Strom- und Spannungsquellen"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.2.3-1.2.5"
+  questions: "TB301-TB505"
+  what:      "Elektrische Magnetische und Elektromagnetische Felder"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.2.6"
+  questions: "TB601-TB613"
+  what:      "Sinusförmige Signale"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.2.7"
+  questions: "TB701-TB702"
+  what:      "Nichtsinusförmige Signale (Wird in Kapitel 1.7 behandelt)"
+  whodoneit: "-"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.2.8"
+  questions: "TB801-TB806"
+  what:      "Modulierte Signale (Wird in Kapitel 1.5 behandelt)"
+  whodoneit: "-"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.2.9"
+  questions: "TB901-TB911"
+  what:      "Ohmsches Gesetz, Leistung und Energie"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.2.9"
+  questions: "TB901-TB911"
+  what:      "Hausaufgaben zu 1.2.9"
+  whodoneit: "DL4EAX"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.2.9"
+  questions: "TB901-TB911"
+  what:      "Hausaufgaben Lösung zu 1.2.9"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.3.1"
+  questions: "TC101-TC111"
+  what:      "Widerstand"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.3.1"
+  questions: "TC101-TC111"
+  what:      "Hausaufgaben zu 1.3.1"
+  whodoneit: "DL4EAX"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.3.1"
+  questions: "TC101-TC111"
+  what:      "Hausaufgaben Lösung zu 1.3.1"
+  whodoneit: "DL4EAX"
+  duration:  "5 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.3.2"
+  questions: "TC201-TC208"
+  what:      "Kondensator"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.3.3"
+  questions: "TC301-TC306"
+  what:      "Spule"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.3.4"
+  questions: "TC401-TC403"
+  what:      "Übertrager und Transformatoren"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.3.4"
+  questions: "TC401-TC403"
+  what:      "Hausaufgaben zu 1.3.4"
+  whodoneit: "DL4EAX"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.3.4"
+  questions: "TC401-TC403"
+  what:      "Hausaufgaben Lösung zu 1.3.4"
+  whodoneit: "DL4EAX"
+  duration:  "10 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.3.5"
+  questions: "TC501-TC509"
+  what:      "Diode"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.3.6"
+  questions: "TC601-TC612"
+  what:      "Transistor"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.4.1"
+  questions: "TD101-TD110"
+  what:      "Serienschaltung von R, L und C"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.4.1"
+  questions: "TD101-TD110"
+  what:      "Parallelschaltung von R, L und C"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.4.1"
+  questions: "TD101-TD110"
+  what:      "Gemischte Schaltungen von R und C"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.4.1"
+  questions: "TD101-TD110"
+  what:      "Hausaufgaben zu 1.4.1"
+  whodoneit: "DL4EAX"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.4.1"
+  questions: "TD101-TD110"
+  what:      "Hausaufgaben Lösung zu 1.4.1"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.4.2"
+  questions: "TD201-TD210"
+  what:      "Schwingkreise und Filter - Impedanz"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.4.2"
+  questions: "TD201-TD210"
+  what:      "Schwingkreise und Filter"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.4.3"
+  questions: "TD301-TD306"
+  what:      "Stromversorgung"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.4.4"
+  questions: "TD401-TD405"
+  what:      "Verstärker"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.4.5"
+  questions: "TD501-TD504"
+  what:      "Modulator und Demodulator (Wird in Kapitel 1.5 behandelt)"
+  whodoneit: "-"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.4.6"
+  questions: "TD601-TD606"
+  what:      "Oszillator"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.5"
+  questions: "TE101-TE312"
+  what:      "Analoge und digitale Modulationsverfahren"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.6"
+  questions: "TF101-TF409"
+  what:      "Funk-Empfänger"
+  whodoneit: "DL4EAX"
+  duration:  "60 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.7"
+  questions: "TG101-TG506"
+  what:      "Funksender"
+  whodoneit: "DM4EAX"
+  duration:  "60 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.8.1"
+  questions: "TH101-TH113"
+  what:      "Antennen"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.8.2"
+  questions: "TH201-TH210"
+  what:      "Antennenmerkmale"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.8.3"
+  questions: "TH301-TH312"
+  what:      "Übertragungsleitungen"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.8.4"
+  questions: "TH401-TH406"
+  what:      "Anpassung, Transformation und Symmetrierung"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.9"
+  questions: "TI102-TI310"
+  what:      "Wellenausbreitung und Ionosphäre"
+  whodoneit: "DM4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.10"
+  questions: "TJ101-TJ211"
+  what:      "Messungen und Messinstrumente"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.11"
+  questions: "TK101-TK319"
+  what:      "Störemissionen, Störfestigkeit, Schutzanforderungen, Ursachen, Abhilfe"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Technik E"
+  lesson:    "1.12"
+  questions: "TL101-TL308"
+  what:      "Elektromagnetische Verträglichkeit, Anwendung, Personen- und Sachschutz"
+  whodoneit: "DM4EAX"
+  duration:  "45 Minuten"
+
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.1"
+  questions: "BA101-BA111"
+  what:      "Internationales Buchstabieralphabet"
+  whodoneit: "DM4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.2.1"
+  questions: "BB101-BB111"
+  what:      "Betriebliche Abkürzungen"
+  whodoneit: "DM4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.2.2"
+  questions: "BB201-BB209"
+  what:      "Q-Schlüssel"
+  whodoneit: "DM4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.2.3"
+  questions: "BB301-BB312"
+  what:      "Signalbeurteilung"
+  whodoneit: "DL4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.2.4"
+  questions: "BB401-BB407"
+  what:      "Bezeichnung der Aussendungen (Wird in Technik E 1.5 behandelt)"
+  whodoneit: "-"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.3"
+  questions: "BC101-BC114"
+  what:      "Frequenzbereiche und IARU-Bandpläne"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.4"
+  questions: "BD101-BD309"
+  what:      "Rufzeichen und Landeskenner"
+  whodoneit: "DM4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.5.1"
+  questions: "BE101-BE119"
+  what:      "Abwicklung des Amateurfunkverkehrs"
+  whodoneit: "DM4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.5.2"
+  questions: "BE201-BE216"
+  what:      "Abwicklung des Amateurfunkverkehrs"
+  whodoneit: "DM4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.5.3"
+  questions: "BE301-BE310"
+  what:      "Betriebsabwicklung bei besonderen Betriebsarten"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.5.4"
+  questions: "BE401-BE411"
+  what:      "Abwicklung des Amateurfunkverkehrs"
+  whodoneit: "DM4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.6"
+  questions: "BF101-BF110"
+  what:      "Notfunkverkehr und Nachrichtenverkehr bei Naturkatastrophen"
+  whodoneit: "DM4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Betrieb"
+  lesson:    "2.7"
+  questions: "BG101-BG115"
+  what:      "Stationstagebuch und QSL-Karte"
+  whodoneit: "DM4EAX"
+  duration:  "30 Minuten"
+
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3"
+  questions: "-"
+  what:      "Einleitung"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.1"
+  questions: "VA101-VA409"
+  what:      "Vollzugsordnung für den Funkdienst"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.2"
+  questions: "VB101-VB125"
+  what:      "Regelungen der CEPT"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.1"
+  questions: "VC101-VC146"
+  what:      "Amateurfunkgesetz"
+  whodoneit: "DM4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.2.1"
+  questions: "VD101-VD129"
+  what:      "Amateurfunkverordnung Allgemeines"
+  whodoneit: "DM4EAX"
+  duration:  "45 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.2.2"
+  questions: "VD201-VD223"
+  what:      "Rufzeichen (Wird in Betriebstechnik 2.4 beandelt)"
+  whodoneit: "-"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.2.3"
+  questions: "VD301-VD309"
+  what:      "Ausbildungsfunkbetrieb"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.2.4"
+  questions: "VD401-VD411"
+  what:      "Klubstationen"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.2.5"
+  questions: "VD501-VD511"
+  what:      "Relaisfunkstellen und Funkbaken"
+  whodoneit: "DL4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.3"
+  questions: "VE101-VE152"
+  what:      "Frequenzbereiche und Nutzungsparameter (Wird in Betriebstechnik 2.3 beandelt)"
+  whodoneit: "-"
+  duration:  "0 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.4"
+  questions: "VF101-VF109"
+  what:      "Telekommunikationsgesetz"
+  whodoneit: "DM4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.5"
+  questions: "VG101-VG112"
+  what:      "Gesetz über die elektromagnetische Verträglichkeit"
+  whodoneit: "DM4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.6"
+  questions: "VH101-VH105"
+  what:      "Gesetz über Funkanlagen und Telekommunikationsendeinrichtungen"
+  whodoneit: "DM4EAX"
+  duration:  "15 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.7"
+  questions: "VI101-VI121"
+  what:      "EMVU und BEMFV"
+  whodoneit: "DM4EAX"
+  duration:  "30 Minuten"
+
+-
+  kind:      "Vorschriften"
+  lesson:    "3.3.8/9"
+  questions: "VJ101-VK105"
+  what:      "Sicherheitsvorschriften und Sonstiges"
+  whodoneit: "DL4EAX"
+  duration:  "30 Minuten"
+

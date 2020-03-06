@@ -65,16 +65,60 @@ des [Berliner Amateurfunk-Kurses](https://www.chaoswelle.de/Kurs).
 Es lässt sich aber auch für andere Kurse nutzen, die nach Eckarts
 Büchern vorgehen.
 
+## NEU: Foliensatz L
+
+*Neu!* Seit Anfang 2020 gibt es einen neuen
+Powerpoint-[Foliensatz](https://www.darc.de/der-club/distrikte/l/referat-fuer-aus-und-weiterbildung/)
+des Distriktes L.
+
+Ich persönlich (DJ3EI) bin mit diesem Foliensatz nicht recht glücklich:
+
+* Die Folien sind pädagogisch und didaktisch nicht besonders geschickt
+angelegt (das meinen ihre Autorinnen und Autoren durchaus auch
+selbst - es sei halt ein erster Wurf).
+
+* Die Wahl von Powerpoint als Tool macht die Zusammenarbeit unnötig
+schwer.  Es gibt OpenSource-Folienmalwerkzeuge, die sich jedermensch
+zumutbar besorgen kann, egal, ob für Linux, Mac oder Windows.
+Powerpoint gehört nicht dazu.
+
+* Die Folien sind einer OpenSource-Lizenz unterstellt. Das ist extrem
+löblich und genau so sollte es sein!  Aber wer sie tatsächlich
+weiterverwurstet, wie man es bei OpenSource-Material kann und darf,
+riskiert Abmahnung, da an einzelnen Stellen "geklautes"
+urheberrechtlich heikles Material benutzt wird (kommerzielle Comics).
+
+Dazu kommt Kleinkram:
+
+* Die unübersichtliche Nummerierung der Lektionen, zum Beispiel 
+"1.2.2" → "1.2.3-1.2.5" → "1.2.6"
+
+* Auf den ersten Blick sieht es so aus, als wären 1. Techniklektionen,
+2. Betrieb und 3. Vorschriften, aber das wurde (glücklicherweise!) nicht
+durchgehalten. Damit bräuchte man eine Reihenfolge der Lektionen.
+
+* Die ZIP-Archive enthalten Dateinamen, die kodiert sind mit Mitteln
+der Bronzezeit der Datenverarbeitung, damals, vor Unicode.
+
+Aber die Folien haben immerhin den Vorteil, real zu existieren und es
+gibt Kurse, die sie benutzen.  Daher werden sie hier unterstützt.
+
+Das Reihenfolgenproblem löst der [Berliner (D23)
+Plan](https://www.chaoswelle.de/Lehrgang_Berlin_2020/Unterrichtsplan_E).
+Ich habe ein den Verdacht, dass die Stofflast auf den einzelnen
+Abenden nicht gut verteilt ist, aber sei's drum.
+
 ## QLT-Dateien
 
-finden sich in den Verzeichnissen [data](data) und [berlin](berlin).
+finden sich in den Verzeichnissen [data](data), [berlin](berlin) und
+[l-folien](l-folien).
 
-Die Software, um diese Dateien zu erzeugen, steckt komplett in zwei
-`Rakefile`.
+Die Software, um diese Dateien zu erzeugen, ist in verschiedenen
+Dateien mit Namen `Rakefile` kodiert.
 
 Alles in diesem Repo steht unter der Apache-Lizens, siehe LICENSE.txt.
 
-## Initiale Ernte
+## Initiale Ernte Moltrecht
 
 In der Datei [harvest.json](harvest.json) finden sich alle Fragen, die
 im Onlinekurs direkt vorkommen.
@@ -82,12 +126,22 @@ im Onlinekurs direkt vorkommen.
 Die Software, diese Liste von der Webseite des DARC zu extrahieren,
 steckt in `harvest/Rakefile`. Man braucht ein halbwegs aktuelles Ruby
 und das Gem `Nokogiri` installiert, wenn man das laufen lassen will;
-Aufruf schlicht `rake`.
+Aufruf dann schlicht `rake`.
+
+## Ernte L-Material
+
+In der Datei [l-material.yaml](l-material.yaml) findet sich die Liste
+der Lektionen aus dem L-Material sowie die Information, welche 
+Powerpoint-Lektion welche Fragen enthält.  Um diese Datei neu zu
+generieren, ruft man `rake harvest_l` auf; es wird dann die
+entsprechende
+[Tabelle](https://www.darc.de/der-club/distrikte/l/referat-fuer-aus-und-weiterbildung/)
+heruntergeladen und analysiert.
 
 ## Generierung der QLT-Dateien
 
-Im Hauptverzeichnis `rake` aufrufen erzeugt die QLT-Dateien im Verzeichnis
-`data`.
+Im Hauptverzeichnis `rake` aufrufen erzeugt die QLT-Dateien in den Verzeichnissen
+`data`, `berlin` und `l-folien`.
 
 ## Dateien
 

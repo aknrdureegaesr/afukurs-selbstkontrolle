@@ -5,8 +5,8 @@ require "yaml"
 # So, e.g., TA101 is one question for T-exam E and a DIFFERENT question for T-exam A.
 # Internally, we pre-fix the class A questions with an aditional "A".
 
-desc "Do most (not included: save_question_conflicts)."
-task :default => [:generate_qlt, :generate_cumulative_qlt, :generate_cumulative_qlt_berlin, :list_forgotten_questions]
+desc "Do most (not included: save_question_conflicts and harvest_l)."
+task :default => [:generate_qlt, :generate_l_qlt, :generate_cumulative_qlt, :generate_cumulative_qlt_berlin, :list_forgotten_questions]
 
 # Maps from sections (e.g.: 'bv07') to enumerables of questions (e.g.: ['VB101', 'VB102']).
 # From harvest.json, harvested from web site course material via subdirectory `harvest`:
@@ -233,12 +233,12 @@ task :decide => [ :load_otherwise_forgotten, :load_harvest, :section_closure, :r
   end
 end
 
-def question_kind(section, qs)
+def question_kind(qs)
   (qs.first)[0].downcase.to_sym
 end
 
 def write_qlt(dir, section, qs, filenamestem, upto)
-  subject = question_kind(section, qs)
+  subject = question_kind(qs)
   fach = {t: 'Technik', b: 'Betriebskunde', v: 'Vorschriften', a: 'A-Technik'}[subject]
   raise "Subject not implemented: #{subject}" if fach.nil?
   filename = dir + "/#{{t: 'te', b: 'be', v: 'vo', a: 'ta'}[subject]}-#{filenamestem}.qlt".upcase
@@ -277,7 +277,7 @@ task :generate_qlt => [:decide] do |t|
     qs = @section2qs_answer[section]
     qs.sort.chunk{|q| q[0]}.each do |kind_letter, qs_one_kind|
       if kind_letters2conflicts.key? kind_letter
-        $stderr.write "WARN: Cannot write #{question_kind(section,qs_one_kind)} for #{section}; please decide [#{kind_letters2conflicts[kind_letter].sort.join(', ')}]\n"
+        $stderr.write "WARN: Cannot write #{question_kind(qs_one_kind)} for #{section}; please decide [#{kind_letters2conflicts[kind_letter].sort.join(', ')}]\n"
       else
         write_qlt "data", section, qs_one_kind, section, false
       end
@@ -299,7 +299,7 @@ def generate_cumulative(sections_and_filenamestems_in_order, dir = "data")
     end
     qs = @section2qs_answer[section]
     qs.sort.chunk{|q| q[0]}.each do |kind_letter, qs_one_kind|
-      kind = question_kind(section, qs_one_kind)
+      kind = question_kind(qs_one_kind)
       kind2cumulated[kind] = Set.new unless kind2cumulated.key? kind
       unless kind_letters_with_conflicts.include? kind_letter
         write_qlt dir, section, kind2cumulated[kind].merge(qs_one_kind), filenamestem, true
@@ -507,3 +507,184 @@ task :reverse_unmentioned_class_a do |t|
     raise "ERROR: No material found in unmentioned_class_a.yaml."
   end    
 end
+
+#
+# Here is stuff connected with the district L slides.
+#
+
+desc "Umbrella tasks for L slides (not included: harvest_l)"
+task :generate_l_qlt => [:load_all_questions] do |t|
+  questionrangeslesson = [] # fromq, toq, lesson
+  YAML.safe_load(File.read("l-material.yaml")).each do |mp|
+    if mp["kind"] == "Technik A"
+      # deal with it later
+    elsif mp["questions"] == "-"
+      # No questions here?
+    else
+      ft = /^([TVB][A-Z]\d{3})\s*\-\s*([TVB][A-Z]\d{3})$/.match(mp["questions"])
+      if ft
+        questionrangeslesson << [ft[1], ft[2], mp['lesson']]
+      else
+        raise "Could not parse \"#{mp["questions"]}\" in #{mp.inspect}"
+      end
+    end
+  end
+  YAML.safe_load(File.read("l-detour.yaml")).each do |dt|
+    ft = /^([TVB][A-Z]\d{3})\s*\-\s*([TVB][A-Z]\d{3})$/.match(dt["questions"])
+    if ft
+      questionrangeslesson << [ft[1], ft[2], dt['lesson']]
+    else
+      raise "Could not parse \"#{dt["questions"]}\" in #{dt.inspect}"
+    end
+  end
+  questionrangeslesson = questionrangeslesson.sort {|a, b| a[0] <=> b[0]}
+  lesson2questionlists = Hash.new do |h, k|
+    h[k] = {t: [], b: [], v: []}
+    h[k]
+  end
+  i = 0
+  no_lesson = []
+  @all_qs.sort.each do |q|
+    if q[0..1] == "AT"
+    # We don't deal with class A yet.
+    elsif @never_asked_questions.include? q
+      # Ignore these. They are not asked in the exams.
+    else
+      repeatcount = 0
+      repeat = true
+      while(repeat)
+        repeatcount += 1
+        if repeatcount > 500
+          raise "oops endless loop #{q}"
+        end
+        case questionrangeslesson[i][0] <=> q
+        when -1
+          # q is above lower bound of range
+          case questionrangeslesson[i][1] <=> q
+          when -1
+            # q is also above upper bound of range.
+            # goto next range and try again.
+            i += 1
+            if questionrangeslesson.size <= i
+              # There is no next range.
+              i = questionrangeslesson.size - 1
+              no_lesson << q
+              repeat = false
+            end
+          when +1
+            # q is in the range.
+            lesson2questionlists[questionrangeslesson[i][2]][question_kind([q])] << q
+            repeat = false
+          when 0
+            # q is exactly the last question of the range.
+            lesson2questionlists[questionrangeslesson[i][2]][question_kind([q])] << q
+            repeat = false
+          else
+            raise "I did not think this could happen."
+          end
+        when +1
+          # q is below lower bound of range,
+          # go back one range if that helps any.
+          if 0 == i
+            # There is no range to go back to.
+            no_lesson << q
+            repeat = false
+          elsif q <= questionrangeslesson[i-1][1]
+            # q is at or below upper bound of previous range, so stepping back may help.
+            i -= 1
+          else
+            # q is somehow stuck between ranges.
+            no_lesson << q
+            repeat = false
+          end
+        when 0
+          # q is exactly equal to the lower bound of range,
+          # so clearly contained in the range.
+          lesson2questionlists[questionrangeslesson[i][2]][question_kind([q])] << q
+          repeat = false
+        else
+          raise "I did not think this could happen."
+        end
+      end
+    end
+  end
+  raise "Did not find #{no_lesson.size} questions #{no_lesson.inspect}" unless 0 == no_lesson.size
+
+  previous = {t: Set.new, b: Set.new, v: Set.new, a: Set.new}
+  dot_lessons = lesson2questionlists.keys.sort{|a, b| a.to_s <=> b.to_s}.reduce({t: [], b: [], v: []}) do |tbv, dot_lesson|
+    key = {"1" => :t, "2" => :b, "3" => :v}[dot_lesson.to_s[0]]
+    raise "No key \"#{key}\" in #{tbv.inspect} for \"#{dot_lesson}\"" unless tbv[key]
+    tbv[key] << dot_lesson
+    tbv
+  end
+  Dir.mkdir("berlin_2020") unless Dir.exist?("berlin_2020")
+  YAML.safe_load(File.read("berlin-l-2020.yaml")).each do |b_day|
+    now = {t: Set.new, b: Set.new, v: Set.new}
+    [:t, :b, :v].each do |sym|
+      max_dots = b_day[sym.to_s].to_s
+      while 0 < dot_lessons[sym].size and dot_lessons[sym][0].to_s <= max_dots
+        dot_lesson = dot_lessons[sym].slice! 0
+        [:t, :b, :v].each do |sym2|
+          now[sym2].merge(lesson2questionlists[dot_lesson][sym2])
+        end
+      end
+    end
+    l_number = b_day["day"]
+    if l_number.size == 2
+      l_number = "#{l_number[0]}0#{l_number[1]}"
+    end
+    [:t, :b, :v].each do |sym3|
+      unless previous[sym3].superset? now[sym3] 
+        write_qlt("berlin_2020", l_number, now[sym3], l_number, false)
+        previous[sym3].merge now[sym3]
+      end
+      unless now[sym3].superset? previous[sym3]
+        write_qlt("berlin_2020", l_number, previous[sym3], "bis-#{l_number}", true)
+      end
+    end
+  end
+end
+
+desc "Download the l-material-table and generate l-material.json"
+task :harvest_l do |t|
+  require 'net/http'
+  require 'nokogiri'
+  client = Net::HTTP.new('www.darc.de', 443)
+  client.use_ssl = true
+  resp = client.request_get("/der-club/distrikte/l/referat-fuer-aus-und-weiterbildung/",
+                                {
+                                  "user-agent" => "DJ3EI's QLT spider https://github.com/aknrdureegaesr/afukurs-selbstkontrolle"
+                                })
+  raise "Could not grab table: #{response.inspect}" unless resp.is_a?(Net::HTTPSuccess)
+  raise "Cannot parse #{respone['content-type']}" unless /^text\/html(;.*)?$/i =~ resp['content-type']
+  page = Nokogiri::HTML(resp.body)
+  File.open("l-material.yaml", "w") do |out|
+    [
+      ["c261949", "Technik A"],
+      ["c259595", "Technik E"],
+      ["c259883", "Betrieb"],
+      ["c260155", "Vorschriften"]
+    ].each do |root_div, kind|
+      out.write("\n")
+      page.xpath("//div[@id=\"#{root_div}\"]//table/tr").each do |tr|
+        tds = tr.xpath("./td")
+        chapter = tds[0].inner_text
+        if chapter == "Kapitel"
+          # Life would have been easier
+          # had they choosen to use th for what it's for.          
+        elsif chapter.match?(/^\s*$/)
+          # CSS? Yes? What? Not here yet? Ah. I see.
+        else
+          out.write("-\n")
+          out.write("  kind:      \"#{kind}\"\n")
+          out.write("  lesson:    \"#{chapter}\"\n")
+          out.write("  questions: \"#{tds[1].inner_text}\"\n")
+          out.write("  what:      \"#{tds[3].inner_text}\"\n")
+          out.write("  whodoneit: \"#{tds[2].inner_text}\"\n")
+          out.write("  duration:  \"#{tds[4].inner_text}\"\n\n")
+        end
+      end
+    end
+  end
+end
+
