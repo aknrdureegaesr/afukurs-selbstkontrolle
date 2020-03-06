@@ -105,13 +105,13 @@ gibt Kurse, die sie benutzen.  Daher werden sie hier unterstützt.
 
 Das Reihenfolgenproblem löst der [Berliner (D23)
 Plan](https://www.chaoswelle.de/Lehrgang_Berlin_2020/Unterrichtsplan_E).
-Ich habe ein den Verdacht, dass die Stofflast auf den einzelnen
+Ich habe den Verdacht, dass die Stofflast auf den einzelnen
 Abenden nicht gut verteilt ist, aber sei's drum.
 
 ## QLT-Dateien
 
 finden sich in den Verzeichnissen [data](data), [berlin](berlin) und
-[l-folien](l-folien).
+[berlin_2020](berlin_2020).
 
 Die Software, um diese Dateien zu erzeugen, ist in verschiedenen
 Dateien mit Namen `Rakefile` kodiert.

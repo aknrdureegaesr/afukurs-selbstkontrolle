@@ -637,11 +637,40 @@ task :generate_l_qlt => [:load_all_questions] do |t|
       unless previous[sym3].superset? now[sym3] 
         write_qlt("berlin_2020", l_number, now[sym3], l_number, false)
         previous[sym3].merge now[sym3]
-      end
-      unless now[sym3].superset? previous[sym3]
-        write_qlt("berlin_2020", l_number, previous[sym3], "bis-#{l_number}", true)
+        unless now[sym3].superset? previous[sym3]
+          write_qlt("berlin_2020", l_number, previous[sym3], "bis-#{l_number}", true)
+        end
       end
     end
+  end
+end
+
+desc "Produce some helpful markup on stdout"
+task :links_l do |t|
+  lessons = ["L01", "L02", "L03", "L04", "L05", "L06", "L07", "L08", "L09", "L10", "L11", "L12", "L13", "L14"]
+  last = {}
+  lessons.each do |lesson|
+    puts "Lernfortschritt-[https://github.com/aknrdureegaesr/afukurs-selbstkontrolle/blob/master/README.md Selbstkontrolle]:\n\n"
+    ["TE", "BE", "VO"].each do |pre|
+      bn = "#{pre}-#{lesson}"
+      fn = "berlin_2020/#{bn}.QLT"
+      if File.exist? fn
+        puts "* [https://github.com/aknrdureegaesr/afukurs-selbstkontrolle/raw/master/#{fn} #{bn}.QLT]"
+      end
+    end
+    ["TE-BIS", "BE-BIS", "VO-BIS"].each do |pre|
+      bn = "#{pre}-#{lesson}"
+      fn = "berlin_2020/#{bn}.QLT"
+      if File.exist? fn
+        puts "* [https://github.com/aknrdureegaesr/afukurs-selbstkontrolle/raw/master/#{fn} #{bn}.QLT]"
+        last[pre] = bn
+      elsif last[pre]
+        bn = last[pre]
+        fn = "berlin_2020/#{bn}.QLT"
+        puts "* [https://github.com/aknrdureegaesr/afukurs-selbstkontrolle/raw/master/#{fn} #{bn}.QLT]"
+      end
+    end
+    puts ""
   end
 end
 
