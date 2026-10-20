@@ -1,6 +1,17 @@
 This is intended to help people studying for the German radio amateur
 exam check what progress they are making.  So this is all in German.
 
+## Dieses Material ist völlig überholt
+
+Seit mehreren Jahren gibt es einen neuen amtlichen Fragenkatalog.
+Dies hier basiert noch auf dem alten, der 2016-2017 aktuell war, als
+dieses Projekt gemacht wurde.
+
+Wer heute für die Amateurfunkprüfung lernen will, dem sei die Webseite
+[https://50ohm.de](https://50ohm.de/) empfohlen.  Den Domainnamen
+finde ich ziemlich dämlich, weil er nicht darauf hinweist, dass es
+hier um Amateurfunkausbildung geht.  Aber der Inhalt ist prima.
+
 ## Wäre doch schade...
 
 ... wenn eine zur BNetzA zur Amateurfunkprüfung geht und alle Fragen
